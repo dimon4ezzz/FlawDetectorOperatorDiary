@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".scheme5a.Scheme5a">
+
+    <TextView
+        android:id="@+id/title"
+        style="@android:style/TextAppearance.Material.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/scheme5a_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:shrinkColumns="2,5">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/et_external_diameter"
+                    android:text="@string/external_diameter" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/et_radiation_weight"
+                    android:text="@string/radiation_weight" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/D_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/D_is"
+                    android:textAlignment="gravity" />
+
+                <EditText
+                    android:id="@+id/et_external_diameter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/mm_to_D"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="3"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/s_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/s_is"
+                    android:textAlignment="gravity" />
+
+                <EditText
+                    android:id="@+id/et_radiation_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/mm_to_s"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="6"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/et_sensitivity"
+                    android:text="@string/sensitivity" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/et_focus"
+                    android:text="@string/focus" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/K_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/K_is"
+                    android:textAlignment="gravity" />
+
+                <EditText
+                    android:id="@+id/et_sensitivity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/mm_to_K"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="3"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/F_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/F_is"
+                    android:textAlignment="gravity" />
+
+                <EditText
+                    android:id="@+id/et_focus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/mm_to_F"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="6"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_internal_diameter"
+                    android:text="@string/internal_diameter" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_coef_c"
+                    android:text="@string/coef_C" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/d_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/d_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_internal_diameter"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/mm_to_d"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="3"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/C_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/C_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_coef_c"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="2"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_coef_m"
+                    android:text="@string/coef_m" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_coef_n"
+                    android:text="@string/coef_n" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/m_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/m_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_coef_m"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="2"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/n_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/n_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_coef_n"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="2"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_transillumination_perimeter"
+                    android:text="@string/transillumination_perimeter" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_focus_distance"
+                    android:text="@string/focus_distance" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/L_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/L_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_transillumination_perimeter"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/mm_to_L"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="3"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/f_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/f_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_focus_distance"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/mm_to_f"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="6"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_amount"
+                    android:text="@string/amount" />
+
+                <TextView
+                    style="@style/BoldSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="3"
+                    android:labelFor="@id/tv_length"
+                    android:text="@string/length" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/N_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/N_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_amount"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_span="2"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/Length_is"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="4"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/Length_is"
+                    android:textAlignment="gravity" />
+
+                <TextView
+                    android:id="@+id/tv_length"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_column="5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/example_one"
+                    android:textAlignment="gravity"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/mm_to_Length"
+                    style="@android:style/TextAppearance.Material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_column="6"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:gravity="center_vertical"
+                    android:text="@string/mm"
+                    android:textAlignment="gravity" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
