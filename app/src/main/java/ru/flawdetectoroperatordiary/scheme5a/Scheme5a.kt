@@ -1,6 +1,5 @@
 package ru.flawdetectoroperatordiary.scheme5a
 
-
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
