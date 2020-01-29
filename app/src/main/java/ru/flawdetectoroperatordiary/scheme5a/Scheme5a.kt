@@ -8,13 +8,20 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
+import ru.flawdetectoroperatordiary.utils.Scheme5a.getAmount
+import ru.flawdetectoroperatordiary.utils.Scheme5a.getCoefN
+import ru.flawdetectoroperatordiary.utils.Scheme5a.getFocusDistance
+import ru.flawdetectoroperatordiary.utils.Scheme5a.getLength
+import ru.flawdetectoroperatordiary.utils.Scheme5a.getTransilluminationPerimeter
+import ru.flawdetectoroperatordiary.utils.getCoefC
+import ru.flawdetectoroperatordiary.utils.getCoefM
+import ru.flawdetectoroperatordiary.utils.getInternalDiameter
+import java.text.DecimalFormat
 
-/**
- * A simple [Fragment] subclass.
- */
+const val VALUABLE_AMOUNT = 4
+
 class Scheme5a : Fragment() {
 
     override fun onCreateView(
@@ -62,6 +69,133 @@ class Scheme5a : Fragment() {
         focus.onFocusChangeListener = DefaultOnFocusChangeListener()
     }
 
+    private fun calculateInternalDiameter() {
+        if (externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty()) {
+            internalDiameter.text = getInternalDiameter(
+                externalDiameter.toDouble(),
+                radiationWeight.toDouble()
+            ).format()
+            internalDiameter.isEnabled = true
+        } else {
+            internalDiameter.isEnabled = false
+        }
+    }
+
+    private fun calculateCoefC() {
+        if (sensitivity.isNotEmpty() && focus.isNotEmpty()) {
+            coefC.text = getCoefC(sensitivity.toDouble(), focus.toDouble()).format()
+            coefC.isEnabled = true
+        } else {
+            coefC.isEnabled = false
+        }
+    }
+
+    private fun calculateCoefM() {
+        if (externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty()) {
+            coefM.text = getCoefM(externalDiameter.toDouble(), radiationWeight.toDouble()).format()
+            coefM.isEnabled = true
+        } else {
+            coefM.isEnabled = false
+        }
+    }
+
+    private fun calculateCoefN() {
+        if (isAllNotEmpty()) {
+            coefN.text = getCoefN(
+                externalDiameter.toDouble(),
+                radiationWeight.toDouble(),
+                sensitivity.toDouble(),
+                focus.toDouble()
+            ).format()
+            coefN.isEnabled = true
+        } else {
+            coefN.isEnabled = false
+        }
+    }
+
+    private fun calculateTransilluminationPerimeter() {
+        if (externalDiameter.isNotEmpty()) {
+            transilluminationPerimeter.text =
+                getTransilluminationPerimeter(externalDiameter.toDouble()).format()
+            transilluminationPerimeter.isEnabled = true
+        } else {
+            transilluminationPerimeter.isEnabled = false
+        }
+    }
+
+    private fun calculateFocusDistance() {
+        if (isAllNotEmpty()) {
+            focusDistance.text = getFocusDistance(
+                externalDiameter.toDouble(),
+                radiationWeight.toDouble(),
+                sensitivity.toDouble(),
+                focus.toDouble()
+            ).format()
+            focusDistance.isEnabled = true
+        } else {
+            focusDistance.isEnabled = false
+        }
+    }
+
+    private fun calculateAmount() {
+        if (isAllNotEmpty()) {
+            amount.text = getAmount(
+                externalDiameter.toDouble(),
+                radiationWeight.toDouble(),
+                sensitivity.toDouble(),
+                focus.toDouble()
+            ).formatAsInt()
+            amount.isEnabled = true
+        } else {
+            amount.isEnabled = false
+        }
+    }
+
+    private fun calculateLength() {
+        if (isAllNotEmpty()) {
+            length.text = getLength(
+                externalDiameter.toDouble(),
+                radiationWeight.toDouble(),
+                sensitivity.toDouble(),
+                focus.toDouble()
+            ).format()
+            length.isEnabled = true
+        } else {
+            length.isEnabled = false
+        }
+    }
+
+    private fun calculate() {
+        calculateInternalDiameter()
+        calculateCoefC()
+        calculateCoefM()
+        calculateCoefN()
+        calculateTransilluminationPerimeter()
+        calculateFocusDistance()
+        calculateAmount()
+        calculateLength()
+    }
+
+    private fun isAllNotEmpty(): Boolean =
+        externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty() && sensitivity.isNotEmpty() && focus.isNotEmpty()
+
+    private fun EditText.isNotEmpty(): Boolean = this.text.isNotEmpty()
+
+    private fun EditText.toDouble(): Double = this.text.toString().toDouble()
+
+    private fun Double.format(): String {
+        val df = DecimalFormat()
+        df.maximumFractionDigits = VALUABLE_AMOUNT
+        return df.format(this).replace(",", ".")
+    }
+
+    private fun Double.formatAsInt(): String {
+        val df = DecimalFormat()
+        df.maximumFractionDigits = 0
+        return df.format(this)
+
+    }
+
     inner class DefaultOnEditorActionListener : TextView.OnEditorActionListener {
         override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
             if (actionId == EditorInfo.IME_ACTION_NEXT) {
@@ -91,10 +225,13 @@ class Scheme5a : Fragment() {
                 throw IllegalArgumentException("default on focus change listener only for EditText")
 
             if (!hasFocus) {
+                calculate()
+
                 if (v.text.isEmpty() && !wasEmpty) {
                     emptyFields++
-                } else if (v.text.isNotEmpty() && emptyFields > 1)
+                } else if (v.text.isNotEmpty() && wasEmpty && emptyFields > 1) {
                     emptyFields--
+                }
             } else {
                 if (emptyFields == 1)
                     v.imeOptions = EditorInfo.IME_ACTION_DONE
@@ -103,8 +240,6 @@ class Scheme5a : Fragment() {
 
                 wasEmpty = v.text.isEmpty()
             }
-
-            Toast.makeText(view!!.context, emptyFields.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
