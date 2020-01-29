@@ -68,21 +68,18 @@ class Scheme5a : Fragment() {
                 when {
                     externalDiameter.text.isEmpty() && v != externalDiameter -> {
                         externalDiameter.requestFocus()
-                        return true
                     }
                     radiationWeight.text.isEmpty() && v != radiationWeight -> {
                         radiationWeight.requestFocus()
-                        return true
                     }
                     sensitivity.text.isEmpty() && v != sensitivity -> {
                         sensitivity.requestFocus()
-                        return true
                     }
                     focus.text.isEmpty() && v != focus -> {
                         focus.requestFocus()
-                        return true
                     }
                 }
+                return true
             }
             return false
         }
