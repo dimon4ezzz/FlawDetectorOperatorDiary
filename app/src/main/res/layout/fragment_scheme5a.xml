@@ -79,8 +79,10 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:ems="10"
+                    android:focusedByDefault="true"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
 
                 <TextView
                     android:id="@+id/mm_to_D"
@@ -113,7 +115,8 @@
                     android:layout_marginEnd="@dimen/default_margin"
                     android:ems="10"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
 
                 <TextView
                     android:id="@+id/mm_to_s"
@@ -174,7 +177,8 @@
                     android:layout_marginEnd="@dimen/default_margin"
                     android:ems="10"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
 
                 <TextView
                     android:id="@+id/mm_to_K"
@@ -207,7 +211,8 @@
                     android:layout_marginEnd="@dimen/default_margin"
                     android:ems="10"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true" />
 
                 <TextView
                     android:id="@+id/mm_to_F"
