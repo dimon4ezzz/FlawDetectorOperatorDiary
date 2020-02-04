@@ -23,6 +23,19 @@ import java.text.DecimalFormat
 const val VALUABLE_AMOUNT = 4
 
 class Scheme5a : Fragment() {
+    private lateinit var externalDiameter: EditText
+    private lateinit var radiationWeight: EditText
+    private lateinit var sensitivity: EditText
+    private lateinit var focus: EditText
+
+    private lateinit var internalDiameter: TextView
+    private lateinit var coefC: TextView
+    private lateinit var coefM: TextView
+    private lateinit var coefN: TextView
+    private lateinit var transilluminationPerimeter: TextView
+    private lateinit var focusDistance: TextView
+    private lateinit var amount: TextView
+    private lateinit var length: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +43,14 @@ class Scheme5a : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scheme5a, container, false)
 
-        setCompanion(view!!)
+        setFields(view!!)
         setListeners()
 
         // Inflate the layout for this fragment
         return view
     }
 
-    private fun setCompanion(view: View) {
+    private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
             radiationWeight = findViewById(R.id.et_radiation_weight)
@@ -246,18 +259,5 @@ class Scheme5a : Fragment() {
     companion object {
         private var emptyFields = 4
         private var wasEmpty = true
-        private lateinit var externalDiameter: EditText
-        private lateinit var radiationWeight: EditText
-        private lateinit var sensitivity: EditText
-        private lateinit var focus: EditText
-
-        private lateinit var internalDiameter: TextView
-        private lateinit var coefC: TextView
-        private lateinit var coefM: TextView
-        private lateinit var coefN: TextView
-        private lateinit var transilluminationPerimeter: TextView
-        private lateinit var focusDistance: TextView
-        private lateinit var amount: TextView
-        private lateinit var length: TextView
     }
 }
