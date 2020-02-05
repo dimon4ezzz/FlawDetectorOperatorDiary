@@ -55,32 +55,32 @@ class Scheme5a : Fragment() {
     private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
-            externalDiameter.setOnEditorActionListener(getOnEditorActionListener(
+            externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())
+            externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener(
                 set = { math.setExternalDiameter(it) },
                 unset = { math.unsetExternalDiameter() }
-            ))
-            externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener()
+            )
 
             radiationThickness = findViewById(R.id.et_radiation_thickness)
-            radiationThickness.setOnEditorActionListener(getOnEditorActionListener(
+            radiationThickness.setOnEditorActionListener(defaultOnEditorActionListener())
+            radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener(
                 set = { math.setRadiationThickness(it) },
                 unset = { math.unsetRadiationThickness() }
-            ))
-            radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener()
+            )
 
             sensitivity = findViewById(R.id.et_sensitivity)
-            sensitivity.setOnEditorActionListener(getOnEditorActionListener(
+            sensitivity.setOnEditorActionListener(defaultOnEditorActionListener())
+            sensitivity.onFocusChangeListener = defaultOnFocusChangeListener(
                 set = { math.setSensitivity(it) },
                 unset = { math.unsetSensitivity() }
-            ))
-            sensitivity.onFocusChangeListener = defaultOnFocusChangeListener()
+            )
 
             focalSpot = findViewById(R.id.et_focal_spot)
-            focalSpot.setOnEditorActionListener(getOnEditorActionListener(
+            focalSpot.setOnEditorActionListener(defaultOnEditorActionListener())
+            focalSpot.onFocusChangeListener = defaultOnFocusChangeListener(
                 set = { math.setFocalSpot(it) },
                 unset = { math.unsetFocalSpot() }
-            ))
-            focalSpot.onFocusChangeListener = defaultOnFocusChangeListener()
+            )
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
@@ -184,27 +184,19 @@ class Scheme5a : Fragment() {
         })
     }
 
-    private fun getOnEditorActionListener(set: (Double) -> Unit, unset: () -> Unit) =
-        object : TextView.OnEditorActionListener {
-            override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
-                if (actionId == EditorInfo.IME_ACTION_NEXT ||
-                    actionId == EditorInfo.IME_ACTION_DONE ||
-                    event?.keyCode == KeyEvent.KEYCODE_ENTER ||
-                    event?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER ||
-                    event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
-                ) {
-                    requestFocus(v)
-
-                    if (v.text.isNotEmpty())
-                        set(v.text.toString().toDouble())
-                    else
-                        unset()
-
-                    return true
-                }
-
-                return false
+    private fun defaultOnEditorActionListener() =
+        TextView.OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_NEXT ||
+                actionId == EditorInfo.IME_ACTION_DONE ||
+                event?.keyCode == KeyEvent.KEYCODE_ENTER ||
+                event?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER ||
+                event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
+            ) {
+                requestFocus(v)
+                return@OnEditorActionListener true
             }
+
+            false
         }
 
     private fun requestFocus(v: TextView) {
@@ -220,22 +212,28 @@ class Scheme5a : Fragment() {
         }
     }
 
-    private fun defaultOnFocusChangeListener() = View.OnFocusChangeListener { v, hasFocus ->
-        require(v is EditText) { "on focus change listener only for EditText" }
+    private fun defaultOnFocusChangeListener(set: (Double) -> Unit, unset: () -> Unit) =
+        View.OnFocusChangeListener { v, hasFocus ->
+            require(v is EditText) { "default on-focus change listener only for EditText" }
 
-        if (!hasFocus) {
-            if (v.text.isEmpty() && !wasEmpty) {
-                counter++
-            } else if (v.text.isNotEmpty() && wasEmpty && counter > 1) {
-                counter--
-            }
-        } else {
-            if (counter == 1)
-                v.imeOptions = EditorInfo.IME_ACTION_DONE
+            if (v.text.isNotEmpty())
+                set(v.text.toString().toDouble())
             else
-                v.imeOptions = EditorInfo.IME_ACTION_NEXT
+                unset()
 
-            wasEmpty = v.text.isEmpty()
+            if (!hasFocus) {
+                if (v.text.isEmpty() && !wasEmpty) {
+                    counter++
+                } else if (v.text.isNotEmpty() && wasEmpty && counter > 1) {
+                    counter--
+                }
+            } else {
+                if (counter == 1)
+                    v.imeOptions = EditorInfo.IME_ACTION_DONE
+                else
+                    v.imeOptions = EditorInfo.IME_ACTION_NEXT
+
+                wasEmpty = v.text.isEmpty()
+            }
         }
-    }
 }
