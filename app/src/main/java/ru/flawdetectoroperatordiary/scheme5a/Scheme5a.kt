@@ -1,11 +1,13 @@
 package ru.flawdetectoroperatordiary.scheme5a
 
+import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -193,6 +195,15 @@ class Scheme5a : Fragment() {
                 event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
             ) {
                 requestFocus(v)
+
+                // attribution: https://stackoverflow.com/a/1109108/3686575
+                if (actionId == EditorInfo.IME_ACTION_DONE)
+                    view?.let {
+                        it.clearFocus()
+                        val imm =
+                            activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+                        imm?.hideSoftInputFromWindow(it.windowToken, 0)
+                    }
                 return@OnEditorActionListener true
             }
 
