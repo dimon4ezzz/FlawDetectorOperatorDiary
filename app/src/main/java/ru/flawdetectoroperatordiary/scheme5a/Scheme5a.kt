@@ -10,17 +10,12 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
-import ru.flawdetectoroperatordiary.utils.Scheme5a.getAmount
-import ru.flawdetectoroperatordiary.utils.Scheme5a.getCoefN
-import ru.flawdetectoroperatordiary.utils.Scheme5a.getFocusDistance
-import ru.flawdetectoroperatordiary.utils.Scheme5a.getLength
-import ru.flawdetectoroperatordiary.utils.Scheme5a.getTransilluminationPerimeter
-import ru.flawdetectoroperatordiary.utils.getCoefC
-import ru.flawdetectoroperatordiary.utils.getCoefM
-import ru.flawdetectoroperatordiary.utils.getInternalDiameter
-import java.text.DecimalFormat
+import ru.flawdetectoroperatordiary.utils.CommonMath
+import ru.flawdetectoroperatordiary.utils.OnDataChangeListener
+import ru.flawdetectoroperatordiary.utils.Scheme
 
-const val VALUABLE_AMOUNT = 4
+private const val FORMAT = "%.4f"
+private const val INT_FORMAT = "%.0f"
 
 class Scheme5a : Fragment() {
     private lateinit var externalDiameter: EditText
@@ -37,13 +32,15 @@ class Scheme5a : Fragment() {
     private lateinit var scansAmount: TextView
     private lateinit var plotLength: TextView
 
+    private val math = CommonMath(Scheme.FIVE_A)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scheme5a, container, false)
 
-        setFields(view!!)
+        setFields(view)
         setListeners()
 
         // Inflate the layout for this fragment
@@ -53,9 +50,21 @@ class Scheme5a : Fragment() {
     private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
+            externalDiameter.setOnEditorActionListener(getOnEditorActionListener {
+                math.setExternalDiameter(
+                    it
+                )
+            })
             radiationThickness = findViewById(R.id.et_radiation_thickness)
+            radiationThickness.setOnEditorActionListener(getOnEditorActionListener {
+                math.setRadiationThickness(
+                    it
+                )
+            })
             sensitivity = findViewById(R.id.et_sensitivity)
+            sensitivity.setOnEditorActionListener(getOnEditorActionListener { math.setSensitivity(it) })
             focalSpot = findViewById(R.id.et_focal_spot)
+            focalSpot.setOnEditorActionListener(getOnEditorActionListener { math.setFocalSpot(it) })
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
@@ -69,195 +78,66 @@ class Scheme5a : Fragment() {
     }
 
     private fun setListeners() {
-        externalDiameter.setOnEditorActionListener(DefaultOnEditorActionListener())
-        externalDiameter.onFocusChangeListener = DefaultOnFocusChangeListener()
-
-        radiationWeight.setOnEditorActionListener(DefaultOnEditorActionListener())
-        radiationWeight.onFocusChangeListener = DefaultOnFocusChangeListener()
-
-        sensitivity.setOnEditorActionListener(DefaultOnEditorActionListener())
-        sensitivity.onFocusChangeListener = DefaultOnFocusChangeListener()
-
-        focus.setOnEditorActionListener(DefaultOnEditorActionListener())
-        focus.onFocusChangeListener = DefaultOnFocusChangeListener()
-    }
-
-    private fun calculateInternalDiameter() {
-        if (externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty()) {
-            internalDiameter.text = getInternalDiameter(
-                externalDiameter.toDouble(),
-                radiationWeight.toDouble()
-            ).format()
-            internalDiameter.isEnabled = true
-        } else {
-            internalDiameter.isEnabled = false
-        }
-    }
-
-    private fun calculateCoefC() {
-        if (sensitivity.isNotEmpty() && focus.isNotEmpty()) {
-            coefC.text = getCoefC(sensitivity.toDouble(), focus.toDouble()).format()
-            coefC.isEnabled = true
-        } else {
-            coefC.isEnabled = false
-        }
-    }
-
-    private fun calculateCoefM() {
-        if (externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty()) {
-            coefM.text = getCoefM(externalDiameter.toDouble(), radiationWeight.toDouble()).format()
-            coefM.isEnabled = true
-        } else {
-            coefM.isEnabled = false
-        }
-    }
-
-    private fun calculateCoefN() {
-        if (isAllNotEmpty()) {
-            coefN.text = getCoefN(
-                externalDiameter.toDouble(),
-                radiationWeight.toDouble(),
-                sensitivity.toDouble(),
-                focus.toDouble()
-            ).format()
-            coefN.isEnabled = true
-        } else {
-            coefN.isEnabled = false
-        }
-    }
-
-    private fun calculateTransilluminationPerimeter() {
-        if (externalDiameter.isNotEmpty()) {
-            transilluminationPerimeter.text =
-                getTransilluminationPerimeter(externalDiameter.toDouble()).format()
-            transilluminationPerimeter.isEnabled = true
-        } else {
-            transilluminationPerimeter.isEnabled = false
-        }
-    }
-
-    private fun calculateFocusDistance() {
-        if (isAllNotEmpty()) {
-            focusDistance.text = getFocusDistance(
-                externalDiameter.toDouble(),
-                radiationWeight.toDouble(),
-                sensitivity.toDouble(),
-                focus.toDouble()
-            ).format()
-            focusDistance.isEnabled = true
-        } else {
-            focusDistance.isEnabled = false
-        }
-    }
-
-    private fun calculateAmount() {
-        if (isAllNotEmpty()) {
-            amount.text = getAmount(
-                externalDiameter.toDouble(),
-                radiationWeight.toDouble(),
-                sensitivity.toDouble(),
-                focus.toDouble()
-            ).formatAsInt()
-            amount.isEnabled = true
-        } else {
-            amount.isEnabled = false
-        }
-    }
-
-    private fun calculateLength() {
-        if (isAllNotEmpty()) {
-            length.text = getLength(
-                externalDiameter.toDouble(),
-                radiationWeight.toDouble(),
-                sensitivity.toDouble(),
-                focus.toDouble()
-            ).format()
-            length.isEnabled = true
-        } else {
-            length.isEnabled = false
-        }
-    }
-
-    private fun calculate() {
-        calculateInternalDiameter()
-        calculateCoefC()
-        calculateCoefM()
-        calculateCoefN()
-        calculateTransilluminationPerimeter()
-        calculateFocusDistance()
-        calculateAmount()
-        calculateLength()
-    }
-
-    private fun isAllNotEmpty(): Boolean =
-        externalDiameter.isNotEmpty() && radiationWeight.isNotEmpty() && sensitivity.isNotEmpty() && focus.isNotEmpty()
-
-    private fun EditText.isNotEmpty(): Boolean = this.text.isNotEmpty()
-
-    private fun EditText.toDouble(): Double = this.text.toString().toDouble()
-
-    private fun Double.format(): String {
-        val df = DecimalFormat()
-        df.maximumFractionDigits = VALUABLE_AMOUNT
-        return df.format(this).replace(",", ".")
-    }
-
-    private fun Double.formatAsInt(): String {
-        val df = DecimalFormat()
-        df.maximumFractionDigits = 0
-        return df.format(this)
-
-    }
-
-    inner class DefaultOnEditorActionListener : TextView.OnEditorActionListener {
-        override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
-            if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                when {
-                    externalDiameter.text.isEmpty() && v != externalDiameter -> {
-                        externalDiameter.requestFocus()
-                    }
-                    radiationWeight.text.isEmpty() && v != radiationWeight -> {
-                        radiationWeight.requestFocus()
-                    }
-                    sensitivity.text.isEmpty() && v != sensitivity -> {
-                        sensitivity.requestFocus()
-                    }
-                    focus.text.isEmpty() && v != focus -> {
-                        focus.requestFocus()
-                    }
-                }
-                return true
+        math.setListener("internalDiameter", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                internalDiameter.text = FORMAT.format(value)
             }
-            return false
-        }
+        })
+        math.setListener("coefC", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                coefC.text = FORMAT.format(value)
+            }
+        })
+        math.setListener("coefM", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                coefM.text = FORMAT.format(value)
+            }
+        })
+        math.setListener("coefN", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                coefN.text = FORMAT.format(value)
+            }
+        })
+        math.setListener("transilluminationPerimeter", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                transilluminationPerimeter.text = FORMAT.format(value)
+            }
+        })
+        math.setListener("distance", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                distance.text = FORMAT.format(value)
+            }
+        })
+        math.setListener("scansAmount", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                scansAmount.text = INT_FORMAT.format(value)
+            }
+        })
+        math.setListener("plotLength", object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                plotLength.text = FORMAT.format(value)
+            }
+        })
     }
 
-    inner class DefaultOnFocusChangeListener : View.OnFocusChangeListener {
-        override fun onFocusChange(v: View, hasFocus: Boolean) {
-            if (v !is EditText)
-                throw IllegalArgumentException("default on focus change listener only for EditText")
+    private fun getOnEditorActionListener(f: (Double) -> Unit) =
+        object : TextView.OnEditorActionListener {
+            override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
+                if (actionId == EditorInfo.IME_ACTION_NEXT ||
+                    actionId == EditorInfo.IME_ACTION_DONE ||
+                    event?.keyCode == KeyEvent.KEYCODE_ENTER ||
+                    event?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER ||
+                    event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
+                ) {
+                    if (v.text.isNotEmpty())
+                        f(v.text.toString().toDouble())
+                    else
+                        f(Double.NaN)
 
-            if (!hasFocus) {
-                calculate()
-
-                if (v.text.isEmpty() && !wasEmpty) {
-                    emptyFields++
-                } else if (v.text.isNotEmpty() && wasEmpty && emptyFields > 1) {
-                    emptyFields--
+                    return true
                 }
-            } else {
-                if (emptyFields == 1)
-                    v.imeOptions = EditorInfo.IME_ACTION_DONE
-                else
-                    v.imeOptions = EditorInfo.IME_ACTION_NEXT
 
-                wasEmpty = v.text.isEmpty()
+                return false
             }
         }
-    }
-
-    companion object {
-        private var emptyFields = 4
-        private var wasEmpty = true
-    }
 }
