@@ -61,7 +61,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/D_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -85,7 +84,6 @@
                     android:singleLine="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_D"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -96,7 +94,6 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/s_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -119,7 +116,6 @@
                     android:singleLine="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_s"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -158,7 +154,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/K_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -181,7 +176,6 @@
                     android:singleLine="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_K"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -192,7 +186,6 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/F_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -215,7 +208,6 @@
                     android:singleLine="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_F"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -254,7 +246,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/d_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -279,7 +270,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_d"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -290,7 +280,6 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/C_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -344,7 +333,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/m_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -370,7 +358,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/n_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -424,7 +411,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/L_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -449,7 +435,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_L"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -460,7 +445,6 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/f_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -485,7 +469,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_f"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -524,7 +507,6 @@
             <TableRow>
 
                 <TextView
-                    android:id="@+id/N_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -550,7 +532,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/Length_is"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -575,7 +556,6 @@
                     android:textIsSelectable="true" />
 
                 <TextView
-                    android:id="@+id/mm_to_Length"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
