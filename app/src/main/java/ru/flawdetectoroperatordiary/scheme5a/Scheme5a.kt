@@ -81,41 +81,49 @@ class Scheme5a : Fragment() {
         math.setListener("internalDiameter", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 internalDiameter.text = FORMAT.format(value)
+                internalDiameter.isEnabled = true
             }
         })
         math.setListener("coefC", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefC.text = FORMAT.format(value)
+                coefC.isEnabled = true
             }
         })
         math.setListener("coefM", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefM.text = FORMAT.format(value)
+                coefM.isEnabled = true
             }
         })
         math.setListener("coefN", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefN.text = FORMAT.format(value)
+                coefN.isEnabled = true
             }
         })
         math.setListener("transilluminationPerimeter", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 transilluminationPerimeter.text = FORMAT.format(value)
+                transilluminationPerimeter.isEnabled = true
             }
         })
         math.setListener("distance", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 distance.text = FORMAT.format(value)
+                distance.isEnabled = true
             }
         })
         math.setListener("scansAmount", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 scansAmount.text = INT_FORMAT.format(value)
+                scansAmount.isEnabled = true
             }
         })
         math.setListener("plotLength", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 plotLength.text = FORMAT.format(value)
+                plotLength.isEnabled = true
             }
         })
     }
