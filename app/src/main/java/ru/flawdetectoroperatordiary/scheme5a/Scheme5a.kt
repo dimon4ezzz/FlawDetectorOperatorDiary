@@ -1,19 +1,14 @@
 package ru.flawdetectoroperatordiary.scheme5a
 
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
-import ru.flawdetectoroperatordiary.utils.CommonMath
-import ru.flawdetectoroperatordiary.utils.Field
-import ru.flawdetectoroperatordiary.utils.OnDataChangeListener
-import ru.flawdetectoroperatordiary.utils.Scheme
+import ru.flawdetectoroperatordiary.utils.*
 
 private const val FORMAT = "%.4f"
 private const val INT_FORMAT = "%.0f"
@@ -172,25 +167,4 @@ class Scheme5a : Fragment() {
             }
         })
     }
-
-    private fun getOnEditorActionListener(set: (Double) -> Unit, unset: () -> Unit) =
-        object : TextView.OnEditorActionListener {
-            override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
-                if (actionId == EditorInfo.IME_ACTION_NEXT ||
-                    actionId == EditorInfo.IME_ACTION_DONE ||
-                    event?.keyCode == KeyEvent.KEYCODE_ENTER ||
-                    event?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER ||
-                    event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
-                ) {
-                    if (v.text.isNotEmpty())
-                        set(v.text.toString().toDouble())
-                    else
-                        unset()
-
-                    return true
-                }
-
-                return false
-            }
-        }
 }
