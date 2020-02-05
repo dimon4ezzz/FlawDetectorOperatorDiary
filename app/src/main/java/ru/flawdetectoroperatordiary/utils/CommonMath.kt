@@ -100,21 +100,21 @@ class CommonMath(private val scheme: Scheme) {
 
     private val distance: Double
         get() {
-            when (scheme) {
-                Scheme.FOUR -> return coefC * radiationThickness
-                else -> return 0.7 * coefC * (externalDiameter - internalDiameter)
+            return when (scheme) {
+                Scheme.FOUR -> coefC * radiationThickness
+                else -> 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
 
     private val scansAmount: Double
         get() {
-            when (scheme) {
+            return when (scheme) {
                 Scheme.FIVE_A ->
-                    return PI / (asin(0.7 * coefM) - asin(0.7 * coefM / (2 * coefN + 1)))
+                    PI / (asin(0.7 * coefM) - asin(0.7 * coefM / (2 * coefN + 1)))
                 Scheme.FIVE_V ->
-                    return 2.0
+                    2.0
                 Scheme.FIVE_G, Scheme.FIVE_D ->
-                    return PI / (asin(coefP * coefM) + asin(coefP * coefM / (2 * coefN + 1)))
+                    PI / (asin(coefP * coefM) + asin(coefP * coefM / (2 * coefN + 1)))
                 else ->
                     throw IllegalStateException("scans amount is not applicable")
             }
@@ -125,11 +125,11 @@ class CommonMath(private val scheme: Scheme) {
 
     private val plotLength: Double
         get() {
-            when (scheme) {
+            return when (scheme) {
                 Scheme.FOUR ->
-                    return 0.8 * distance
+                    0.8 * distance
                 Scheme.FIVE_A ->
-                    return if (transilluminationPerimeter / scansAmount > 100)
+                    if (transilluminationPerimeter / scansAmount > 100)
                         20 + transilluminationPerimeter / scansAmount
                     else
                         1.2 * transilluminationPerimeter / scansAmount
