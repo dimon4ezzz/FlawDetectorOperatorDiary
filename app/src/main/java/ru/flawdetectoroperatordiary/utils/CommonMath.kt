@@ -13,11 +13,7 @@ class CommonMath(private val scheme: Scheme) {
 
     private val listeners = HashMap<String, OnDataChangeListener>()
 
-    fun setExternalDiameter(value: Double) = run {
-        externalDiameter = value
-        calculate()
-    }
-
+    fun setExternalDiameter(value: Double) = run { externalDiameter = value; calculate() }
     fun setRadiationThickness(value: Double) = run { radiationThickness = value; calculate() }
     fun setSensitivity(value: Double) = run { sensitivity = value; calculate() }
     fun setFocalSpot(value: Double) = run { focalSpot = value; calculate() }
