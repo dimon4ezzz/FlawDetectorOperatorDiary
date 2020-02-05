@@ -51,20 +51,20 @@ class Scheme5a : Fragment() {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
             externalDiameter.setOnEditorActionListener(getOnEditorActionListener {
-                math.setExternalDiameter(
-                    it
-                )
+                math.setExternalDiameter(it)
             })
             radiationThickness = findViewById(R.id.et_radiation_thickness)
             radiationThickness.setOnEditorActionListener(getOnEditorActionListener {
-                math.setRadiationThickness(
-                    it
-                )
+                math.setRadiationThickness(it)
             })
             sensitivity = findViewById(R.id.et_sensitivity)
-            sensitivity.setOnEditorActionListener(getOnEditorActionListener { math.setSensitivity(it) })
+            sensitivity.setOnEditorActionListener(getOnEditorActionListener {
+                math.setSensitivity(it)
+            })
             focalSpot = findViewById(R.id.et_focal_spot)
-            focalSpot.setOnEditorActionListener(getOnEditorActionListener { math.setFocalSpot(it) })
+            focalSpot.setOnEditorActionListener(getOnEditorActionListener {
+                math.setFocalSpot(it)
+            })
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
