@@ -13,13 +13,12 @@ class CommonMath(private val scheme: Scheme) {
 
     private val listeners = HashMap<String, OnDataChangeListener>()
 
-    fun setExternalDiameter(value: Double) = run { externalDiameter = value; calculate() }
-    fun setRadiationThickness(value: Double) = run { radiationThickness = value; calculate() }
-    fun setSensitivity(value: Double) = run { sensitivity = value; calculate() }
-    fun setFocalSpot(value: Double) = run { focalSpot = value; calculate() }
+    fun setExternalDiameter(value: Double) { externalDiameter = value; calculate() }
+    fun setRadiationThickness(value: Double) { radiationThickness = value; calculate() }
+    fun setSensitivity(value: Double) { sensitivity = value; calculate() }
+    fun setFocalSpot(value: Double) { focalSpot = value; calculate() }
 
-    fun setListener(name: String, listener: OnDataChangeListener) =
-        run { listeners[name] = listener }
+    fun setListener(name: String, listener: OnDataChangeListener) { listeners[name] = listener }
 
     private fun calculate() {
         when (scheme) {
@@ -68,8 +67,8 @@ class CommonMath(private val scheme: Scheme) {
     }
 
     private val coefC: Double
-        get() = run {
-            if (focalSpot / sensitivity < 2) 4.0
+        get() {
+            return if (focalSpot / sensitivity < 2) 4.0
             else 2 * focalSpot / sensitivity
         }
 
@@ -83,22 +82,22 @@ class CommonMath(private val scheme: Scheme) {
         get() = PI * externalDiameter
 
     private val distance: Double
-        get() = run {
+        get() {
             when (scheme) {
-                Scheme.FOUR -> coefC * radiationThickness
-                else -> 0.7 * coefC * (externalDiameter - internalDiameter)
+                Scheme.FOUR -> return coefC * radiationThickness
+                else -> return 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
 
     private val scansAmount: Double
-        get() = run {
+        get() {
             when (scheme) {
                 Scheme.FIVE_A ->
-                    PI / (asin(0.7 * coefM) - asin(0.7 * coefM / (2 * coefN + 1)))
+                    return PI / (asin(0.7 * coefM) - asin(0.7 * coefM / (2 * coefN + 1)))
                 Scheme.FIVE_V ->
-                    2.0
+                    return 2.0
                 Scheme.FIVE_G, Scheme.FIVE_D ->
-                    PI / (asin(coefP * coefM) + asin(coefP * coefM / (2 * coefN + 1)))
+                    return PI / (asin(coefP * coefM) + asin(coefP * coefM / (2 * coefN + 1)))
                 else ->
                     throw IllegalStateException("scans amount is not applicable")
             }
@@ -108,12 +107,12 @@ class CommonMath(private val scheme: Scheme) {
         get() = sqrt(1 - 0.2 * (2.6 - 1 / coefM).pow(2))
 
     private val plotLength: Double
-        get() = run {
+        get() {
             when (scheme) {
                 Scheme.FOUR ->
-                    0.8 * distance
+                    return 0.8 * distance
                 Scheme.FIVE_A ->
-                    if (transilluminationPerimeter / scansAmount > 100)
+                    return if (transilluminationPerimeter / scansAmount > 100)
                         20 + transilluminationPerimeter / scansAmount
                     else
                         1.2 * transilluminationPerimeter / scansAmount
