@@ -24,18 +24,18 @@ const val VALUABLE_AMOUNT = 4
 
 class Scheme5a : Fragment() {
     private lateinit var externalDiameter: EditText
-    private lateinit var radiationWeight: EditText
+    private lateinit var radiationThickness: EditText
     private lateinit var sensitivity: EditText
-    private lateinit var focus: EditText
+    private lateinit var focalSpot: EditText
 
     private lateinit var internalDiameter: TextView
     private lateinit var coefC: TextView
     private lateinit var coefM: TextView
     private lateinit var coefN: TextView
     private lateinit var transilluminationPerimeter: TextView
-    private lateinit var focusDistance: TextView
-    private lateinit var amount: TextView
-    private lateinit var length: TextView
+    private lateinit var distance: TextView
+    private lateinit var scansAmount: TextView
+    private lateinit var plotLength: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,18 +53,18 @@ class Scheme5a : Fragment() {
     private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
-            radiationWeight = findViewById(R.id.et_radiation_weight)
+            radiationThickness = findViewById(R.id.et_radiation_thickness)
             sensitivity = findViewById(R.id.et_sensitivity)
-            focus = findViewById(R.id.et_focus)
+            focalSpot = findViewById(R.id.et_focal_spot)
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
             coefM = findViewById(R.id.tv_coef_m)
             coefN = findViewById(R.id.tv_coef_n)
             transilluminationPerimeter = findViewById(R.id.tv_transillumination_perimeter)
-            focusDistance = findViewById(R.id.tv_focus_distance)
-            amount = findViewById(R.id.tv_amount)
-            length = findViewById(R.id.tv_length)
+            distance = findViewById(R.id.tv_distance)
+            scansAmount = findViewById(R.id.tv_scans_amount)
+            plotLength = findViewById(R.id.tv_plot_length)
         }
     }
 

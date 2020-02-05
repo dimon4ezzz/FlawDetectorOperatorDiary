@@ -54,8 +54,8 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:layout_span="3"
-                    android:labelFor="@id/et_radiation_weight"
-                    android:text="@string/radiation_weight" />
+                    android:labelFor="@id/et_radiation_thickness"
+                    android:text="@string/radiation_thickness" />
             </TableRow>
 
             <TableRow>
@@ -104,7 +104,7 @@
                     android:textAlignment="gravity" />
 
                 <EditText
-                    android:id="@+id/et_radiation_weight"
+                    android:id="@+id/et_radiation_thickness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
@@ -147,8 +147,8 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:layout_span="3"
-                    android:labelFor="@id/et_focus"
-                    android:text="@string/focus" />
+                    android:labelFor="@id/et_focal_spot"
+                    android:text="@string/focal_spot" />
             </TableRow>
 
             <TableRow>
@@ -196,7 +196,7 @@
                     android:textAlignment="gravity" />
 
                 <EditText
-                    android:id="@+id/et_focus"
+                    android:id="@+id/et_focal_spot"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_column="5"
@@ -404,8 +404,8 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:layout_span="3"
-                    android:labelFor="@id/tv_focus_distance"
-                    android:text="@string/focus_distance" />
+                    android:labelFor="@id/tv_distance"
+                    android:text="@string/distance" />
             </TableRow>
 
             <TableRow>
@@ -455,7 +455,7 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/tv_focus_distance"
+                    android:id="@+id/tv_distance"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -489,8 +489,8 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:layout_span="3"
-                    android:labelFor="@id/tv_amount"
-                    android:text="@string/amount" />
+                    android:labelFor="@id/tv_scans_amount"
+                    android:text="@string/scans_amount" />
 
                 <TextView
                     style="@style/BoldSubhead"
@@ -500,8 +500,8 @@
                     android:layout_marginStart="@dimen/default_margin"
                     android:layout_marginEnd="@dimen/default_margin"
                     android:layout_span="3"
-                    android:labelFor="@id/tv_length"
-                    android:text="@string/length" />
+                    android:labelFor="@id/tv_plot_length"
+                    android:text="@string/plot_length" />
             </TableRow>
 
             <TableRow>
@@ -517,7 +517,7 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/tv_amount"
+                    android:id="@+id/tv_scans_amount"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -542,7 +542,7 @@
                     android:textAlignment="gravity" />
 
                 <TextView
-                    android:id="@+id/tv_length"
+                    android:id="@+id/tv_plot_length"
                     style="@android:style/TextAppearance.Material"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
