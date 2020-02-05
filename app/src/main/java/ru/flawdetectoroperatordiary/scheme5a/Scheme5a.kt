@@ -50,21 +50,25 @@ class Scheme5a : Fragment() {
     private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
-            externalDiameter.setOnEditorActionListener(getOnEditorActionListener {
-                math.setExternalDiameter(it)
-            })
+            externalDiameter.setOnEditorActionListener(getOnEditorActionListener(
+                set = { math.setExternalDiameter(it) },
+                unset = { math.unsetExternalDiameter() }
+            ))
             radiationThickness = findViewById(R.id.et_radiation_thickness)
-            radiationThickness.setOnEditorActionListener(getOnEditorActionListener {
-                math.setRadiationThickness(it)
-            })
+            radiationThickness.setOnEditorActionListener(getOnEditorActionListener(
+                set = { math.setRadiationThickness(it) },
+                unset = { math.unsetRadiationThickness() }
+            ))
             sensitivity = findViewById(R.id.et_sensitivity)
-            sensitivity.setOnEditorActionListener(getOnEditorActionListener {
-                math.setSensitivity(it)
-            })
+            sensitivity.setOnEditorActionListener(getOnEditorActionListener(
+                set = { math.setSensitivity(it) },
+                unset = { math.unsetSensitivity() }
+            ))
             focalSpot = findViewById(R.id.et_focal_spot)
-            focalSpot.setOnEditorActionListener(getOnEditorActionListener {
-                math.setFocalSpot(it)
-            })
+            focalSpot.setOnEditorActionListener(getOnEditorActionListener(
+                set = { math.setFocalSpot(it) },
+                unset = { math.unsetFocalSpot() }
+            ))
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
@@ -83,11 +87,21 @@ class Scheme5a : Fragment() {
                 internalDiameter.text = FORMAT.format(value)
                 internalDiameter.isEnabled = true
             }
+
+            override fun onErase() {
+                internalDiameter.text = FORMAT.format(1.0)
+                internalDiameter.isEnabled = false
+            }
         })
         math.setListener("coefC", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefC.text = FORMAT.format(value)
                 coefC.isEnabled = true
+            }
+
+            override fun onErase() {
+                coefC.text = FORMAT.format(1.0)
+                coefC.isEnabled = false
             }
         })
         math.setListener("coefM", object : OnDataChangeListener {
@@ -95,11 +109,21 @@ class Scheme5a : Fragment() {
                 coefM.text = FORMAT.format(value)
                 coefM.isEnabled = true
             }
+
+            override fun onErase() {
+                coefM.text = FORMAT.format(1.0)
+                coefM.isEnabled = false
+            }
         })
         math.setListener("coefN", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefN.text = FORMAT.format(value)
                 coefN.isEnabled = true
+            }
+
+            override fun onErase() {
+                coefN.text = FORMAT.format(1.0)
+                coefN.isEnabled = false
             }
         })
         math.setListener("transilluminationPerimeter", object : OnDataChangeListener {
@@ -107,11 +131,21 @@ class Scheme5a : Fragment() {
                 transilluminationPerimeter.text = FORMAT.format(value)
                 transilluminationPerimeter.isEnabled = true
             }
+
+            override fun onErase() {
+                transilluminationPerimeter.text = FORMAT.format(1.0)
+                transilluminationPerimeter.isEnabled = false
+            }
         })
         math.setListener("distance", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 distance.text = FORMAT.format(value)
                 distance.isEnabled = true
+            }
+
+            override fun onErase() {
+                distance.text = FORMAT.format(1.0)
+                distance.isEnabled = false
             }
         })
         math.setListener("scansAmount", object : OnDataChangeListener {
@@ -119,16 +153,26 @@ class Scheme5a : Fragment() {
                 scansAmount.text = INT_FORMAT.format(value)
                 scansAmount.isEnabled = true
             }
+
+            override fun onErase() {
+                scansAmount.text = INT_FORMAT.format(1.0)
+                scansAmount.isEnabled = false
+            }
         })
         math.setListener("plotLength", object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 plotLength.text = FORMAT.format(value)
                 plotLength.isEnabled = true
             }
+
+            override fun onErase() {
+                plotLength.text = FORMAT.format(1.0)
+                plotLength.isEnabled = false
+            }
         })
     }
 
-    private fun getOnEditorActionListener(f: (Double) -> Unit) =
+    private fun getOnEditorActionListener(set: (Double) -> Unit, unset: () -> Unit) =
         object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_NEXT ||
@@ -138,9 +182,9 @@ class Scheme5a : Fragment() {
                     event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
                 ) {
                     if (v.text.isNotEmpty())
-                        f(v.text.toString().toDouble())
+                        set(v.text.toString().toDouble())
                     else
-                        f(Double.NaN)
+                        unset()
 
                     return true
                 }

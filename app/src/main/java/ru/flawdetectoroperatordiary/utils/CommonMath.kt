@@ -37,40 +37,42 @@ class CommonMath(private val scheme: Scheme) {
         listeners[name] = listener
     }
 
+    fun unsetExternalDiameter() {
+        externalDiameter = Double.NaN
+        calculate()
+    }
+
+    fun unsetRadiationThickness() {
+        radiationThickness = Double.NaN
+        calculate()
+    }
+
+    fun unsetSensitivity() {
+        sensitivity = Double.NaN
+        calculate()
+    }
+
+    fun unsetFocalSpot() {
+        focalSpot = Double.NaN
+        calculate()
+    }
+
     private fun calculate() {
         when (scheme) {
             Scheme.FOUR -> {
-                if (!sensitivity.isNaN() && !focalSpot.isNaN()) {
-                    listeners["coefC"]?.onChange(coefC)
-
-                    if (!radiationThickness.isNaN()) {
-                        listeners["distance"]?.onChange(distance)
-                        listeners["plotLength"]?.onChange(plotLength)
-                    }
-                }
+                trySetCoefC()
+                trySetDistance()
+                trySetPlotLength()
             }
             Scheme.FIVE_A -> {
-                if (!externalDiameter.isNaN())
-                    listeners["transilluminationPerimeter"]?.onChange(transilluminationPerimeter)
-
-                if (!externalDiameter.isNaN() && !radiationThickness.isNaN()) {
-                    listeners["internalDiameter"]?.onChange(internalDiameter)
-                    listeners["coefM"]?.onChange(coefM)
-                }
-
-                if (!sensitivity.isNaN() && !focalSpot.isNaN())
-                    listeners["coefC"]?.onChange(coefC)
-
-                if (!externalDiameter.isNaN() &&
-                    !radiationThickness.isNaN() &&
-                    !sensitivity.isNaN() &&
-                    !focalSpot.isNaN()
-                ) {
-                    listeners["distance"]?.onChange(distance)
-                    listeners["coefN"]?.onChange(coefN)
-                    listeners["scansAmount"]?.onChange(scansAmount)
-                    listeners["plotLength"]?.onChange(plotLength)
-                }
+                trySetTransilluminationPerimeter()
+                trySetInternalDiameter()
+                trySetCoefM()
+                trySetCoefC()
+                trySetDistance()
+                trySetScansAmount()
+                trySetPlotLength()
+                trySetCoefN()
             }
             Scheme.FIVE_B -> TODO()
             Scheme.FIVE_V -> TODO()
@@ -81,6 +83,62 @@ class CommonMath(private val scheme: Scheme) {
             Scheme.FIVE_Z -> TODO()
             Scheme.SIX -> TODO()
         }
+    }
+
+    private fun trySetCoefC() {
+        if (!coefC.isNaN())
+            listeners["coefC"]?.onChange(coefC)
+        else
+            listeners["coefC"]?.onErase()
+    }
+
+    private fun trySetInternalDiameter() {
+        if (!internalDiameter.isNaN())
+            listeners["internalDiameter"]?.onChange(internalDiameter)
+        else
+            listeners["internalDiameter"]?.onErase()
+    }
+
+    private fun trySetCoefM() {
+        if (!coefM.isNaN())
+            listeners["coefM"]?.onChange(coefM)
+        else
+            listeners["coefM"]?.onErase()
+    }
+
+    private fun trySetTransilluminationPerimeter() {
+        if (!transilluminationPerimeter.isNaN())
+            listeners["transilluminationPerimeter"]?.onChange(transilluminationPerimeter)
+        else
+            listeners["transilluminationPerimeter"]?.onErase()
+    }
+
+    private fun trySetDistance() {
+        if (!distance.isNaN())
+            listeners["distance"]?.onChange(distance)
+        else
+            listeners["distance"]?.onErase()
+    }
+
+    private fun trySetScansAmount() {
+        if (!scansAmount.isNaN())
+            listeners["scansAmount"]?.onChange(scansAmount)
+        else
+            listeners["scansAmount"]?.onErase()
+    }
+
+    private fun trySetPlotLength() {
+        if (!plotLength.isNaN())
+            listeners["plotLength"]?.onChange(plotLength)
+        else
+            listeners["plotLength"]?.onErase()
+    }
+
+    private fun trySetCoefN() {
+        if (!coefN.isNaN())
+            listeners["coefN"]?.onChange(coefN)
+        else
+            listeners["coefN"]?.onErase()
     }
 
     private val coefC: Double
