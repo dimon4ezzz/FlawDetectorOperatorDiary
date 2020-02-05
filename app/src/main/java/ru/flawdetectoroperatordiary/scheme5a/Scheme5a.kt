@@ -35,6 +35,7 @@ class Scheme5a : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_scheme5a, container, false)
+        activity!!.setTitle(R.string.scheme5a_title)
 
         setFields(view)
         setListeners()
