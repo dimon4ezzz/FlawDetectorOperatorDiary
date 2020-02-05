@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
 import ru.flawdetectoroperatordiary.utils.CommonMath
+import ru.flawdetectoroperatordiary.utils.Field
 import ru.flawdetectoroperatordiary.utils.OnDataChangeListener
 import ru.flawdetectoroperatordiary.utils.Scheme
 
@@ -82,7 +83,7 @@ class Scheme5a : Fragment() {
     }
 
     private fun setListeners() {
-        math.setListener("internalDiameter", object : OnDataChangeListener {
+        math.setListener(Field.INTERNAL_DIAMETER, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 internalDiameter.text = FORMAT.format(value)
                 internalDiameter.isEnabled = true
@@ -93,7 +94,7 @@ class Scheme5a : Fragment() {
                 internalDiameter.isEnabled = false
             }
         })
-        math.setListener("coefC", object : OnDataChangeListener {
+        math.setListener(Field.COEFC, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefC.text = FORMAT.format(value)
                 coefC.isEnabled = true
@@ -104,7 +105,7 @@ class Scheme5a : Fragment() {
                 coefC.isEnabled = false
             }
         })
-        math.setListener("coefM", object : OnDataChangeListener {
+        math.setListener(Field.COEFM, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefM.text = FORMAT.format(value)
                 coefM.isEnabled = true
@@ -115,7 +116,7 @@ class Scheme5a : Fragment() {
                 coefM.isEnabled = false
             }
         })
-        math.setListener("coefN", object : OnDataChangeListener {
+        math.setListener(Field.COEFN, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 coefN.text = FORMAT.format(value)
                 coefN.isEnabled = true
@@ -126,7 +127,7 @@ class Scheme5a : Fragment() {
                 coefN.isEnabled = false
             }
         })
-        math.setListener("transilluminationPerimeter", object : OnDataChangeListener {
+        math.setListener(Field.TRANSILLUMINATION_PERIMETER, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 transilluminationPerimeter.text = FORMAT.format(value)
                 transilluminationPerimeter.isEnabled = true
@@ -137,7 +138,7 @@ class Scheme5a : Fragment() {
                 transilluminationPerimeter.isEnabled = false
             }
         })
-        math.setListener("distance", object : OnDataChangeListener {
+        math.setListener(Field.DISTANCE, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 distance.text = FORMAT.format(value)
                 distance.isEnabled = true
@@ -148,7 +149,7 @@ class Scheme5a : Fragment() {
                 distance.isEnabled = false
             }
         })
-        math.setListener("scansAmount", object : OnDataChangeListener {
+        math.setListener(Field.SCANS_AMOUNT, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 scansAmount.text = INT_FORMAT.format(value)
                 scansAmount.isEnabled = true
@@ -159,7 +160,7 @@ class Scheme5a : Fragment() {
                 scansAmount.isEnabled = false
             }
         })
-        math.setListener("plotLength", object : OnDataChangeListener {
+        math.setListener(Field.PLOT_LENGTH, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 plotLength.text = FORMAT.format(value)
                 plotLength.isEnabled = true

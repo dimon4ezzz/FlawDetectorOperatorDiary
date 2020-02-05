@@ -11,7 +11,7 @@ class CommonMath(private val scheme: Scheme) {
     private var sensitivity: Double = Double.NaN
     private var focalSpot: Double = Double.NaN
 
-    private val listeners = HashMap<String, OnDataChangeListener>()
+    private val listeners = HashMap<Field, OnDataChangeListener>()
 
     fun setExternalDiameter(value: Double) {
         externalDiameter = value
@@ -33,8 +33,8 @@ class CommonMath(private val scheme: Scheme) {
         calculate()
     }
 
-    fun setListener(name: String, listener: OnDataChangeListener) {
-        listeners[name] = listener
+    fun setListener(field: Field, listener: OnDataChangeListener) {
+        listeners[field] = listener
     }
 
     fun unsetExternalDiameter() {
@@ -87,58 +87,58 @@ class CommonMath(private val scheme: Scheme) {
 
     private fun trySetCoefC() {
         if (!coefC.isNaN())
-            listeners["coefC"]?.onChange(coefC)
+            listeners[Field.COEFC]?.onChange(coefC)
         else
-            listeners["coefC"]?.onErase()
+            listeners[Field.COEFC]?.onErase()
     }
 
     private fun trySetInternalDiameter() {
         if (!internalDiameter.isNaN())
-            listeners["internalDiameter"]?.onChange(internalDiameter)
+            listeners[Field.INTERNAL_DIAMETER]?.onChange(internalDiameter)
         else
-            listeners["internalDiameter"]?.onErase()
+            listeners[Field.INTERNAL_DIAMETER]?.onErase()
     }
 
     private fun trySetCoefM() {
         if (!coefM.isNaN())
-            listeners["coefM"]?.onChange(coefM)
+            listeners[Field.COEFM]?.onChange(coefM)
         else
-            listeners["coefM"]?.onErase()
+            listeners[Field.COEFM]?.onErase()
     }
 
     private fun trySetTransilluminationPerimeter() {
         if (!transilluminationPerimeter.isNaN())
-            listeners["transilluminationPerimeter"]?.onChange(transilluminationPerimeter)
+            listeners[Field.TRANSILLUMINATION_PERIMETER]?.onChange(transilluminationPerimeter)
         else
-            listeners["transilluminationPerimeter"]?.onErase()
+            listeners[Field.TRANSILLUMINATION_PERIMETER]?.onErase()
     }
 
     private fun trySetDistance() {
         if (!distance.isNaN())
-            listeners["distance"]?.onChange(distance)
+            listeners[Field.DISTANCE]?.onChange(distance)
         else
-            listeners["distance"]?.onErase()
+            listeners[Field.DISTANCE]?.onErase()
     }
 
     private fun trySetScansAmount() {
         if (!scansAmount.isNaN())
-            listeners["scansAmount"]?.onChange(scansAmount)
+            listeners[Field.SCANS_AMOUNT]?.onChange(scansAmount)
         else
-            listeners["scansAmount"]?.onErase()
+            listeners[Field.SCANS_AMOUNT]?.onErase()
     }
 
     private fun trySetPlotLength() {
         if (!plotLength.isNaN())
-            listeners["plotLength"]?.onChange(plotLength)
+            listeners[Field.PLOT_LENGTH]?.onChange(plotLength)
         else
-            listeners["plotLength"]?.onErase()
+            listeners[Field.PLOT_LENGTH]?.onErase()
     }
 
     private fun trySetCoefN() {
         if (!coefN.isNaN())
-            listeners["coefN"]?.onChange(coefN)
+            listeners[Field.COEFN]?.onChange(coefN)
         else
-            listeners["coefN"]?.onErase()
+            listeners[Field.COEFN]?.onErase()
     }
 
     private val coefC: Double
