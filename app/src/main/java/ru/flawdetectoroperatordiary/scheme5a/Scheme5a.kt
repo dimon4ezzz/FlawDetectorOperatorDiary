@@ -35,6 +35,9 @@ class Scheme5a : Fragment() {
 
     private val math = CommonMath(Scheme.FIVE_A)
 
+    private var counter = 4
+    private var wasEmpty = true
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,21 +59,28 @@ class Scheme5a : Fragment() {
                 set = { math.setExternalDiameter(it) },
                 unset = { math.unsetExternalDiameter() }
             ))
+            externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener()
+
             radiationThickness = findViewById(R.id.et_radiation_thickness)
             radiationThickness.setOnEditorActionListener(getOnEditorActionListener(
                 set = { math.setRadiationThickness(it) },
                 unset = { math.unsetRadiationThickness() }
             ))
+            radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener()
+
             sensitivity = findViewById(R.id.et_sensitivity)
             sensitivity.setOnEditorActionListener(getOnEditorActionListener(
                 set = { math.setSensitivity(it) },
                 unset = { math.unsetSensitivity() }
             ))
+            sensitivity.onFocusChangeListener = defaultOnFocusChangeListener()
+
             focalSpot = findViewById(R.id.et_focal_spot)
             focalSpot.setOnEditorActionListener(getOnEditorActionListener(
                 set = { math.setFocalSpot(it) },
                 unset = { math.unsetFocalSpot() }
             ))
+            focalSpot.onFocusChangeListener = defaultOnFocusChangeListener()
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
@@ -183,6 +193,8 @@ class Scheme5a : Fragment() {
                     event?.keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER ||
                     event?.keyCode == KeyEvent.KEYCODE_DPAD_CENTER
                 ) {
+                    requestFocus(v)
+
                     if (v.text.isNotEmpty())
                         set(v.text.toString().toDouble())
                     else
@@ -194,4 +206,36 @@ class Scheme5a : Fragment() {
                 return false
             }
         }
+
+    private fun requestFocus(v: TextView) {
+        when {
+            externalDiameter.text.isEmpty() && v != externalDiameter ->
+                externalDiameter.requestFocus()
+            radiationThickness.text.isEmpty() && v != radiationThickness ->
+                radiationThickness.requestFocus()
+            sensitivity.text.isEmpty() && v != sensitivity ->
+                sensitivity.requestFocus()
+            focalSpot.text.isEmpty() && v != focalSpot ->
+                focalSpot.requestFocus()
+        }
+    }
+
+    private fun defaultOnFocusChangeListener() = View.OnFocusChangeListener { v, hasFocus ->
+        require(v is EditText) { "on focus change listener only for EditText" }
+
+        if (!hasFocus) {
+            if (v.text.isEmpty() && !wasEmpty) {
+                counter++
+            } else if (v.text.isNotEmpty() && wasEmpty && counter > 1) {
+                counter--
+            }
+        } else {
+            if (counter == 1)
+                v.imeOptions = EditorInfo.IME_ACTION_DONE
+            else
+                v.imeOptions = EditorInfo.IME_ACTION_NEXT
+
+            wasEmpty = v.text.isEmpty()
+        }
+    }
 }
