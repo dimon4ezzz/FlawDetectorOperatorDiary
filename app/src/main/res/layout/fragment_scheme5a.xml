@@ -56,7 +56,6 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginEnd="@dimen/default_margin"
                 android:ems="10"
-                android:focusedByDefault="true"
                 android:importantForAutofill="no"
                 android:inputType="numberDecimal"
                 android:singleLine="true" />
@@ -143,7 +142,7 @@
 
             <EditText
                 android:id="@+id/et_sensitivity"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_marginStart="@dimen/default_margin"
@@ -175,7 +174,7 @@
 
             <EditText
                 android:id="@+id/et_focal_spot"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_marginStart="@dimen/default_margin"
@@ -236,7 +235,7 @@
             <TextView
                 android:id="@+id/tv_internal_diameter"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_marginStart="@dimen/default_margin"
@@ -270,7 +269,7 @@
             <TextView
                 android:id="@+id/tv_coef_c"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_marginStart="@dimen/default_margin"
@@ -323,7 +322,7 @@
             <TextView
                 android:id="@+id/tv_coef_m"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_marginStart="@dimen/default_margin"
@@ -348,7 +347,7 @@
             <TextView
                 android:id="@+id/tv_coef_n"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_marginStart="@dimen/default_margin"
@@ -401,7 +400,7 @@
             <TextView
                 android:id="@+id/tv_transillumination_perimeter"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_marginStart="@dimen/default_margin"
@@ -435,7 +434,7 @@
             <TextView
                 android:id="@+id/tv_distance"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_marginStart="@dimen/default_margin"
@@ -497,7 +496,7 @@
             <TextView
                 android:id="@+id/tv_scans_amount"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:layout_marginStart="@dimen/default_margin"
@@ -522,7 +521,7 @@
             <TextView
                 android:id="@+id/tv_plot_length"
                 style="@style/Text"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="5"
                 android:layout_marginStart="@dimen/default_margin"
