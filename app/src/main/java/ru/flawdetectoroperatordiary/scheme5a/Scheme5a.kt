@@ -47,42 +47,11 @@ class Scheme5a : Fragment() {
         val view = inflater.inflate(R.layout.fragment_scheme5a, container, false)
         activity!!.setTitle(R.string.scheme5a_title)
 
-        setFields(view)
-        setListeners()
-
-        // Inflate the layout for this fragment
-        return view
-    }
-
-    private fun setFields(view: View) {
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
-            externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())
-            externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener(
-                set = { math.setExternalDiameter(it) },
-                unset = { math.unsetExternalDiameter() }
-            )
-
             radiationThickness = findViewById(R.id.et_radiation_thickness)
-            radiationThickness.setOnEditorActionListener(defaultOnEditorActionListener())
-            radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener(
-                set = { math.setRadiationThickness(it) },
-                unset = { math.unsetRadiationThickness() }
-            )
-
             sensitivity = findViewById(R.id.et_sensitivity)
-            sensitivity.setOnEditorActionListener(defaultOnEditorActionListener())
-            sensitivity.onFocusChangeListener = defaultOnFocusChangeListener(
-                set = { math.setSensitivity(it) },
-                unset = { math.unsetSensitivity() }
-            )
-
             focalSpot = findViewById(R.id.et_focal_spot)
-            focalSpot.setOnEditorActionListener(defaultOnEditorActionListener())
-            focalSpot.onFocusChangeListener = defaultOnFocusChangeListener(
-                set = { math.setFocalSpot(it) },
-                unset = { math.unsetFocalSpot() }
-            )
 
             internalDiameter = findViewById(R.id.tv_internal_diameter)
             coefC = findViewById(R.id.tv_coef_c)
@@ -93,9 +62,38 @@ class Scheme5a : Fragment() {
             scansAmount = findViewById(R.id.tv_scans_amount)
             plotLength = findViewById(R.id.tv_plot_length)
         }
+
+        setListeners()
+
+        // Inflate the layout for this fragment
+        return view
     }
 
     private fun setListeners() {
+        externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())
+        externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener(
+            set = { math.setExternalDiameter(it) },
+            unset = { math.unsetExternalDiameter() }
+        )
+
+        radiationThickness.setOnEditorActionListener(defaultOnEditorActionListener())
+        radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener(
+            set = { math.setRadiationThickness(it) },
+            unset = { math.unsetRadiationThickness() }
+        )
+
+        sensitivity.setOnEditorActionListener(defaultOnEditorActionListener())
+        sensitivity.onFocusChangeListener = defaultOnFocusChangeListener(
+            set = { math.setSensitivity(it) },
+            unset = { math.unsetSensitivity() }
+        )
+
+        focalSpot.setOnEditorActionListener(defaultOnEditorActionListener())
+        focalSpot.onFocusChangeListener = defaultOnFocusChangeListener(
+            set = { math.setFocalSpot(it) },
+            unset = { math.unsetFocalSpot() }
+        )
+
         math.setListener(Field.INTERNAL_DIAMETER, object : OnDataChangeListener {
             override fun onChange(value: Double) {
                 internalDiameter.text = FORMAT.format(value)
