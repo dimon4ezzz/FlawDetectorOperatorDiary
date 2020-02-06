@@ -13,6 +13,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
 
+const val FORMAT = "%.4f"
+const val INT_FORMAT = "%.0f"
+
 abstract class DefaultFragment : Fragment() {
     private lateinit var externalDiameter: EditText
     private lateinit var radiationThickness: EditText
@@ -54,6 +57,20 @@ abstract class DefaultFragment : Fragment() {
 
     protected abstract fun initCalculatedFields(view: View)
     protected abstract fun setCalculatedFieldListeners()
+
+    protected fun setMathListener(field: Field, textView: TextView) {
+        math.setListener(field, object : OnDataChangeListener {
+            override fun onChange(value: Double) {
+                textView.text = FORMAT.format(value)
+                textView.isEnabled = true
+            }
+
+            override fun onErase() {
+                textView.text = FORMAT.format(1.0)
+                textView.isEnabled = false
+            }
+        })
+    }
 
     private fun setFieldListeners() {
         externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())

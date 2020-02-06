@@ -3,10 +3,10 @@ package ru.flawdetectoroperatordiary.scheme5a
 import android.view.View
 import android.widget.TextView
 import ru.flawdetectoroperatordiary.R
-import ru.flawdetectoroperatordiary.utils.*
-
-private const val FORMAT = "%.4f"
-private const val INT_FORMAT = "%.0f"
+import ru.flawdetectoroperatordiary.utils.CommonMath
+import ru.flawdetectoroperatordiary.utils.DefaultFragment
+import ru.flawdetectoroperatordiary.utils.Field
+import ru.flawdetectoroperatordiary.utils.Scheme
 
 class Scheme5a : DefaultFragment() {
     private lateinit var internalDiameter: TextView
@@ -40,93 +40,13 @@ class Scheme5a : DefaultFragment() {
     }
 
     override fun setCalculatedFieldListeners() {
-        math.setListener(Field.INTERNAL_DIAMETER, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                internalDiameter.text = FORMAT.format(value)
-                internalDiameter.isEnabled = true
-            }
-
-            override fun onErase() {
-                internalDiameter.text = FORMAT.format(1.0)
-                internalDiameter.isEnabled = false
-            }
-        })
-        math.setListener(Field.COEFC, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                coefC.text = FORMAT.format(value)
-                coefC.isEnabled = true
-            }
-
-            override fun onErase() {
-                coefC.text = FORMAT.format(1.0)
-                coefC.isEnabled = false
-            }
-        })
-        math.setListener(Field.COEFM, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                coefM.text = FORMAT.format(value)
-                coefM.isEnabled = true
-            }
-
-            override fun onErase() {
-                coefM.text = FORMAT.format(1.0)
-                coefM.isEnabled = false
-            }
-        })
-        math.setListener(Field.COEFN, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                coefN.text = FORMAT.format(value)
-                coefN.isEnabled = true
-            }
-
-            override fun onErase() {
-                coefN.text = FORMAT.format(1.0)
-                coefN.isEnabled = false
-            }
-        })
-        math.setListener(Field.TRANSILLUMINATION_PERIMETER, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                transilluminationPerimeter.text = FORMAT.format(value)
-                transilluminationPerimeter.isEnabled = true
-            }
-
-            override fun onErase() {
-                transilluminationPerimeter.text = FORMAT.format(1.0)
-                transilluminationPerimeter.isEnabled = false
-            }
-        })
-        math.setListener(Field.DISTANCE, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                distance.text = FORMAT.format(value)
-                distance.isEnabled = true
-            }
-
-            override fun onErase() {
-                distance.text = FORMAT.format(1.0)
-                distance.isEnabled = false
-            }
-        })
-        math.setListener(Field.SCANS_AMOUNT, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                scansAmount.text = INT_FORMAT.format(value)
-                scansAmount.isEnabled = true
-            }
-
-            override fun onErase() {
-                scansAmount.text = INT_FORMAT.format(1.0)
-                scansAmount.isEnabled = false
-            }
-        })
-        math.setListener(Field.PLOT_LENGTH, object : OnDataChangeListener {
-            override fun onChange(value: Double) {
-                plotLength.text = FORMAT.format(value)
-                plotLength.isEnabled = true
-            }
-
-            override fun onErase() {
-                plotLength.text = FORMAT.format(1.0)
-                plotLength.isEnabled = false
-            }
-        })
+        setMathListener(Field.INTERNAL_DIAMETER, internalDiameter)
+        setMathListener(Field.COEFC, coefC)
+        setMathListener(Field.COEFM, coefM)
+        setMathListener(Field.COEFN, coefN)
+        setMathListener(Field.TRANSILLUMINATION_PERIMETER, transilluminationPerimeter)
+        setMathListener(Field.DISTANCE, distance)
+        setMathListener(Field.SCANS_AMOUNT, scansAmount)
+        setMathListener(Field.PLOT_LENGTH, plotLength)
     }
 }
