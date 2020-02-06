@@ -1,9 +1,16 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="BoldSubhead" parent="android:style/TextAppearance.Material.Subhead">
@@ -16,6 +23,11 @@
 
     <style name="Text" parent="android:style/TextAppearance.Material">
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SpinnerTitle" parent="Base.Widget.AppCompat.ActionBar.TabText">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

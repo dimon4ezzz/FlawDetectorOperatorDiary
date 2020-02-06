@@ -42,7 +42,6 @@ abstract class DefaultFragment : Fragment() {
 
         initCalculatedFields(view)
 
-        setActivityTitle()
         setMath()
 
         setFieldListeners()
@@ -52,7 +51,6 @@ abstract class DefaultFragment : Fragment() {
         return view
     }
 
-    protected abstract fun setActivityTitle()
     protected abstract fun setMath()
 
     protected abstract fun initCalculatedFields(view: View)

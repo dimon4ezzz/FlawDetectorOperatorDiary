@@ -18,10 +18,6 @@ class Scheme5a : DefaultFragment() {
     private lateinit var scansAmount: TextView
     private lateinit var plotLength: TextView
 
-    override fun setActivityTitle() {
-        activity!!.setTitle(R.string.scheme5a_title)
-    }
-
     override fun setMath() {
         math = CommonMath(Scheme.FIVE_A)
     }

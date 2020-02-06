@@ -13,10 +13,6 @@ class Scheme4 : DefaultFragment() {
     private lateinit var distance: TextView
     private lateinit var plotLength: TextView
 
-    override fun setActivityTitle() {
-        activity!!.setTitle(R.string.scheme4_title)
-    }
-
     override fun setMath() {
         math = CommonMath(Scheme.FOUR)
     }
