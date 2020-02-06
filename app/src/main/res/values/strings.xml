@@ -2,6 +2,7 @@
     <string name="app_name">Расчёты ГОСТ 7512-82</string>
 
     <string name="scheme5a_title">Схема 5а</string>
+    <string name="scheme4_title">Схема 4</string>
     <string name="external_diameter">Наружный диаметр</string>
     <string name="radiation_thickness">Радиационная толщина</string>
     <string name="sensitivity">Чувствительность</string>
