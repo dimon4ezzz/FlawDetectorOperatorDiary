@@ -14,7 +14,7 @@ class Scheme4 : DefaultFragment() {
     private lateinit var plotLength: TextView
 
     override fun setActivityTitle() {
-        activity!!.setTitle(R.string.scheme5a_title)
+        activity!!.setTitle(R.string.scheme4_title)
     }
 
     override fun setMath() {
