@@ -58,19 +58,22 @@ abstract class DefaultFragment : Fragment() {
     protected abstract fun initCalculatedFields(view: View)
     protected abstract fun setCalculatedFieldListeners()
 
-    protected fun setMathListener(field: Field, textView: TextView) {
+    protected fun setMathListener(field: Field, textView: TextView, intFormat: Boolean = false) {
         math.setListener(field, object : OnDataChangeListener {
             override fun onChange(value: Double) {
-                textView.text = FORMAT.format(value)
+                textView.text = value.format(intFormat)
                 textView.isEnabled = true
             }
 
             override fun onErase() {
-                textView.text = FORMAT.format(1.0)
+                textView.text = (1.0).format(intFormat)
                 textView.isEnabled = false
             }
         })
     }
+
+    private fun Double.format(intFormat: Boolean): String =
+        if (intFormat) INT_FORMAT.format(this) else FORMAT.format(this)
 
     private fun setFieldListeners() {
         externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())
