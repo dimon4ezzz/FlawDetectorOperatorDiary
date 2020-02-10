@@ -27,4 +27,8 @@
     <string name="N_is">N:</string>
     <string name="Length_is">L:</string>
     <string name="example_one">1</string>
+    <string name="menu_action_choice">Выбор схемы</string>
+    <string name="menu_action_clear">Очистить</string>
+    <string name="menu_action_settings">Настройки</string>
+    <string name="menu_action_list">Журнал ввода</string>
 </resources>

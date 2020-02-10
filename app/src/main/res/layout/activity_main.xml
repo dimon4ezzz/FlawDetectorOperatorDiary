@@ -6,11 +6,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
-    <fragment
+    <FrameLayout
         android:id="@+id/fragment"
-        android:name="ru.flawdetectoroperatordiary.scheme5a.Scheme5a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

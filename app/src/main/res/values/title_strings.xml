@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="titles">
-        <item name="scheme5a_title">Схема 5а</item>
-        <item name="scheme4_title">Схема 4</item>
+        <item>Схема 4</item>
+        <item>Схема 5а</item>
+        <item>Схема 5б</item>
+        <item>Схема 5в</item>
+        <item>Схема 5г</item>
+        <item>Схема 5д</item>
+        <item>Схема 5е</item>
+        <item>Схема 5ж</item>
+        <item>Схема 5з</item>
+        <item>Схема 6</item>
     </string-array>
 </resources>

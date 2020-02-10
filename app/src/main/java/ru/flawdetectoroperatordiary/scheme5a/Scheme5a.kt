@@ -18,6 +18,8 @@ class Scheme5a : DefaultFragment() {
     private lateinit var scansAmount: TextView
     private lateinit var plotLength: TextView
 
+    override fun getLayout(): Int = R.layout.fragment_scheme5a
+
     override fun setMath() {
         math = CommonMath(Scheme.FIVE_A)
     }

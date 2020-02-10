@@ -31,7 +31,7 @@ abstract class DefaultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_scheme5a, container, false)
+        val view = inflater.inflate(getLayout(), container, false)
 
         with(view) {
             externalDiameter = findViewById(R.id.et_external_diameter)
@@ -51,6 +51,7 @@ abstract class DefaultFragment : Fragment() {
         return view
     }
 
+    protected abstract fun getLayout(): Int
     protected abstract fun setMath()
 
     protected abstract fun initCalculatedFields(view: View)

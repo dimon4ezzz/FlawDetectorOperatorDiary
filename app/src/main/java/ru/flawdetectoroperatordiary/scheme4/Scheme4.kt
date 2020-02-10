@@ -13,6 +13,8 @@ class Scheme4 : DefaultFragment() {
     private lateinit var distance: TextView
     private lateinit var plotLength: TextView
 
+    override fun getLayout(): Int = R.layout.fragment_scheme4
+
     override fun setMath() {
         math = CommonMath(Scheme.FOUR)
     }
