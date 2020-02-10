@@ -17,10 +17,10 @@ const val FORMAT = "%.4f"
 const val INT_FORMAT = "%.0f"
 
 abstract class DefaultFragment : Fragment() {
-    private lateinit var externalDiameter: EditText
-    private lateinit var radiationThickness: EditText
-    private lateinit var sensitivity: EditText
-    private lateinit var focalSpot: EditText
+    private var externalDiameter: EditText? = null
+    private var radiationThickness: EditText? = null
+    private var sensitivity: EditText? = null
+    private var focalSpot: EditText? = null
 
     protected lateinit var math: CommonMath
 
@@ -34,10 +34,10 @@ abstract class DefaultFragment : Fragment() {
         val view = inflater.inflate(getLayout(), container, false)
 
         with(view) {
-            externalDiameter = findViewById(R.id.et_external_diameter)
-            radiationThickness = findViewById(R.id.et_radiation_thickness)
-            sensitivity = findViewById(R.id.et_sensitivity)
-            focalSpot = findViewById(R.id.et_focal_spot)
+            externalDiameter = tryFindViewById(R.id.et_external_diameter)
+            radiationThickness = tryFindViewById(R.id.et_radiation_thickness)
+            sensitivity = tryFindViewById(R.id.et_sensitivity)
+            focalSpot = tryFindViewById(R.id.et_focal_spot)
         }
 
         initCalculatedFields(view)
@@ -71,30 +71,37 @@ abstract class DefaultFragment : Fragment() {
         })
     }
 
+    private fun <T : View> View.tryFindViewById(id: Int): T? {
+        val t = this.findViewById<T>(id)
+        if (t == null)
+            counter--
+        return t
+    }
+
     private fun Double.format(intFormat: Boolean): String =
         if (intFormat) INT_FORMAT.format(this) else FORMAT.format(this)
 
     private fun setFieldListeners() {
-        externalDiameter.setOnEditorActionListener(defaultOnEditorActionListener())
-        externalDiameter.onFocusChangeListener = defaultOnFocusChangeListener(
+        externalDiameter?.setOnEditorActionListener(defaultOnEditorActionListener())
+        externalDiameter?.onFocusChangeListener = defaultOnFocusChangeListener(
             set = { math.setExternalDiameter(it) },
             unset = { math.unsetExternalDiameter() }
         )
 
-        radiationThickness.setOnEditorActionListener(defaultOnEditorActionListener())
-        radiationThickness.onFocusChangeListener = defaultOnFocusChangeListener(
+        radiationThickness?.setOnEditorActionListener(defaultOnEditorActionListener())
+        radiationThickness?.onFocusChangeListener = defaultOnFocusChangeListener(
             set = { math.setRadiationThickness(it) },
             unset = { math.unsetRadiationThickness() }
         )
 
-        sensitivity.setOnEditorActionListener(defaultOnEditorActionListener())
-        sensitivity.onFocusChangeListener = defaultOnFocusChangeListener(
+        sensitivity?.setOnEditorActionListener(defaultOnEditorActionListener())
+        sensitivity?.onFocusChangeListener = defaultOnFocusChangeListener(
             set = { math.setSensitivity(it) },
             unset = { math.unsetSensitivity() }
         )
 
-        focalSpot.setOnEditorActionListener(defaultOnEditorActionListener())
-        focalSpot.onFocusChangeListener = defaultOnFocusChangeListener(
+        focalSpot?.setOnEditorActionListener(defaultOnEditorActionListener())
+        focalSpot?.onFocusChangeListener = defaultOnFocusChangeListener(
             set = { math.setFocalSpot(it) },
             unset = { math.unsetFocalSpot() }
         )
@@ -125,15 +132,24 @@ abstract class DefaultFragment : Fragment() {
         }
 
     private fun requestFocus(v: TextView) {
-        when {
-            externalDiameter.text.isEmpty() && v != externalDiameter ->
-                externalDiameter.requestFocus()
-            radiationThickness.text.isEmpty() && v != radiationThickness ->
-                radiationThickness.requestFocus()
-            sensitivity.text.isEmpty() && v != sensitivity ->
-                sensitivity.requestFocus()
-            focalSpot.text.isEmpty() && v != focalSpot ->
-                focalSpot.requestFocus()
+        externalDiameter?.let {
+            if (it.text.isEmpty() && v != it)
+                it.requestFocus()
+        }
+
+        radiationThickness?.let {
+            if (it.text.isEmpty() && v != it)
+                it.requestFocus()
+        }
+
+        sensitivity?.let {
+            if (it.text.isEmpty() && v != it)
+                it.requestFocus()
+        }
+
+        focalSpot?.let {
+            if (it.text.isEmpty() && v != it)
+                it.requestFocus()
         }
     }
 

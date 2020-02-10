@@ -38,14 +38,6 @@
 
         <TableRow>
 
-            <EditText
-                android:id="@+id/et_external_diameter"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:importantForAutofill="no"
-                android:visibility="gone"
-                tools:ignore="LabelFor,TextFields" />
-
             <TextView
                 style="@style/Text"
                 android:layout_width="wrap_content"
