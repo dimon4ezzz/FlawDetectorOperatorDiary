@@ -136,21 +136,29 @@ abstract class DefaultFragment : Fragment() {
         externalDiameter?.let {
             if (it.text.isEmpty() && v != it)
                 it.requestFocus()
+
+            return
         }
 
         radiationThickness?.let {
             if (it.text.isEmpty() && v != it)
                 it.requestFocus()
+
+            return
         }
 
         sensitivity?.let {
             if (it.text.isEmpty() && v != it)
                 it.requestFocus()
+
+            return
         }
 
         focalSpot?.let {
             if (it.text.isEmpty() && v != it)
                 it.requestFocus()
+
+            return
         }
     }
 
