@@ -15,6 +15,7 @@ import ru.flawdetectoroperatordiary.R
 
 const val FORMAT = "%.4f"
 const val INT_FORMAT = "%.0f"
+const val NONE = "—"
 
 abstract class DefaultFragment : Fragment() {
     private var externalDiameter: EditText? = null
@@ -65,7 +66,7 @@ abstract class DefaultFragment : Fragment() {
             }
 
             override fun onErase() {
-                textView.text = (1.0).format(intFormat)
+                textView.text = NONE
                 textView.isEnabled = false
             }
         })
