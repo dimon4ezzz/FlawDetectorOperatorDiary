@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import ru.flawdetectoroperatordiary.scheme4.Scheme4
 import ru.flawdetectoroperatordiary.scheme5a.Scheme5a
+import ru.flawdetectoroperatordiary.scheme5g.Scheme5g
 import ru.flawdetectoroperatordiary.scheme5v.Scheme5v
 import ru.flawdetectoroperatordiary.utils.DefaultFragment
 
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 0L -> gotoFragment(Scheme4())
                 1L -> gotoFragment(Scheme5a())
                 3L -> gotoFragment(Scheme5v())
+                4L -> gotoFragment(Scheme5g())
             }
         }
 

@@ -81,7 +81,17 @@ class CommonMath(private val scheme: Scheme) {
                 trySetScansAmount()
                 trySetPlotLength()
             }
-            Scheme.FIVE_G -> TODO()
+            Scheme.FIVE_G -> {
+                trySetInternalDiameter()
+                trySetCoefC()
+                trySetCoefM()
+                trySetCoefN()
+                trySetPVar()
+                trySetDistance()
+                trySetScansAmount()
+                trySetRotationAngle()
+                trySetPlotLength()
+            }
             Scheme.FIVE_D -> TODO()
             Scheme.FIVE_E -> TODO()
             Scheme.FIVE_Zh -> TODO()
@@ -146,6 +156,20 @@ class CommonMath(private val scheme: Scheme) {
             listeners[Field.COEFN]?.onErase()
     }
 
+    private fun trySetPVar() {
+        if (!pVar.isNaN())
+            listeners[Field.P_VAR]?.onChange(pVar)
+        else
+            listeners[Field.P_VAR]?.onErase()
+    }
+
+    private fun trySetRotationAngle() {
+        if (!rotationAngle.isNaN())
+            listeners[Field.ROTATION_ANGLE]?.onChange(rotationAngle)
+        else
+            listeners[Field.ROTATION_ANGLE]?.onErase()
+    }
+
     private val coefC: Double
         get() {
             return if (focalSpot / sensitivity < 2) 4.0
@@ -166,6 +190,11 @@ class CommonMath(private val scheme: Scheme) {
             return when (scheme) {
                 Scheme.FOUR -> coefC * radiationThickness
                 Scheme.FIVE_V -> coefC * externalDiameter
+                Scheme.FIVE_G ->
+                    if (0.5 * (1.5 * coefC * (externalDiameter - internalDiameter) - externalDiameter) < 1)
+                        externalDiameter
+                    else
+                        0.5 * (1.5 * coefC * (externalDiameter - internalDiameter) - externalDiameter)
                 else -> 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
@@ -178,13 +207,13 @@ class CommonMath(private val scheme: Scheme) {
                 Scheme.FIVE_V ->
                     2.0
                 Scheme.FIVE_G, Scheme.FIVE_D ->
-                    PI / (asin(coefP * coefM) + asin(coefP * coefM / (2 * coefN + 1)))
+                    PI / (asin(pVar * coefM) + asin(pVar * coefM / (2 * coefN + 1)))
                 else ->
                     throw IllegalStateException("scans amount is not applicable")
             }
         }
 
-    private val coefP: Double
+    private val pVar: Double
         get() = sqrt(1 - 0.2 * (2.6 - 1 / coefM).pow(2))
 
     private val plotLength: Double
@@ -199,6 +228,8 @@ class CommonMath(private val scheme: Scheme) {
                         1.2 * transilluminationPerimeter / scansAmount
                 Scheme.FIVE_V ->
                     40 + externalDiameter
+                Scheme.FIVE_G ->
+                    1.2 * externalDiameter
                 else ->
                     throw IllegalStateException("plot length is not applicable")
             }
@@ -206,5 +237,8 @@ class CommonMath(private val scheme: Scheme) {
 
     private val coefN: Double
         get() = distance / externalDiameter
+
+    private val rotationAngle: Double
+        get() = 360 / scansAmount
 }
 

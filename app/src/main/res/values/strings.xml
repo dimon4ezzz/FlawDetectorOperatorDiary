@@ -13,7 +13,10 @@
     <string name="distance">Фокусное расстояние</string>
     <string name="scans_amount">Минимальное количество участков</string>
     <string name="plot_length">Длина участка</string>
+    <string name="p_var">Переменная p</string>
+    <string name="rotation_angle">Угол поворота</string>
     <string name="mm">мм</string>
+    <string name="degree">°</string>
     <string name="s_is">s:</string>
     <string name="D_is">D:</string>
     <string name="K_is">K:</string>
@@ -26,6 +29,8 @@
     <string name="f_is">f:</string>
     <string name="N_is">N:</string>
     <string name="Length_is">L:</string>
+    <string name="p_is">p:</string>
+    <string name="varphi_is">φ:</string>
     <string name="example_one">1</string>
     <string name="menu_action_choice">Выбор схемы</string>
     <string name="menu_action_clear">Очистить</string>
