@@ -15,6 +15,7 @@
     <string name="plot_length">Длина участка</string>
     <string name="p_var">Переменная p</string>
     <string name="rotation_angle">Угол поворота</string>
+    <string name="film_length">Минимальная длина плёнки в кассете</string>
     <string name="mm">мм</string>
     <string name="degree">°</string>
     <string name="s_is">s:</string>

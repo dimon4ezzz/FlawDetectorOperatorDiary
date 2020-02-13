@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".scheme5d.Scheme5d">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:shrinkColumns="2,5">
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/et_external_diameter"
+                android:text="@string/external_diameter" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/et_radiation_thickness"
+                android:text="@string/radiation_thickness" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/D_is" />
+
+            <EditText
+                android:id="@+id/et_external_diameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/s_is" />
+
+            <EditText
+                android:id="@+id/et_radiation_thickness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/et_sensitivity"
+                android:text="@string/sensitivity" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/et_focal_spot"
+                android:text="@string/focal_spot" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/K_is" />
+
+            <EditText
+                android:id="@+id/et_sensitivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/F_is" />
+
+            <EditText
+                android:id="@+id/et_focal_spot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_internal_diameter"
+                android:text="@string/internal_diameter" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_c"
+                android:text="@string/coef_C" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/d_is" />
+
+            <TextView
+                android:id="@+id/tv_internal_diameter"
+                style="@style/ValueText"
+                android:layout_column="2" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/C_is" />
+
+            <TextView
+                android:id="@+id/tv_coef_c"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_m"
+                android:text="@string/coef_m" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_n"
+                android:text="@string/coef_n" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/m_is" />
+
+            <TextView
+                android:id="@+id/tv_coef_m"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:layout_span="2" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/n_is" />
+
+            <TextView
+                android:id="@+id/tv_coef_n"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_p_var"
+                android:text="@string/p_var" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_distance"
+                android:text="@string/distance" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/p_is" />
+
+            <TextView
+                android:id="@+id/tv_p_var"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:layout_span="2" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/f_is" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                style="@style/ValueText"
+                android:layout_column="5" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_scans_amount"
+                android:text="@string/scans_amount" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_scans_amount"
+                android:text="@string/rotation_angle" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/N_is" />
+
+            <TextView
+                android:id="@+id/tv_scans_amount"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:layout_span="2" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/varphi_is" />
+
+            <TextView
+                android:id="@+id/tv_rotation_angle"
+                style="@style/ValueText"
+                android:layout_column="5" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/degree" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_plot_length"
+                android:text="@string/film_length" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/N_is" />
+
+            <TextView
+                android:id="@+id/tv_plot_length"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:layout_span="2" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

@@ -92,7 +92,17 @@ class CommonMath(private val scheme: Scheme) {
                 trySetRotationAngle()
                 trySetPlotLength()
             }
-            Scheme.FIVE_D -> TODO()
+            Scheme.FIVE_D -> {
+                trySetInternalDiameter()
+                trySetCoefC()
+                trySetCoefM()
+                trySetCoefN()
+                trySetPVar()
+                trySetDistance()
+                trySetScansAmount()
+                trySetRotationAngle()
+                trySetFilmLength()
+            }
             Scheme.FIVE_E -> TODO()
             Scheme.FIVE_Zh -> TODO()
             Scheme.FIVE_Z -> TODO()
@@ -170,6 +180,13 @@ class CommonMath(private val scheme: Scheme) {
             listeners[Field.ROTATION_ANGLE]?.onErase()
     }
 
+    private fun trySetFilmLength() {
+        if (!filmLength.isNaN())
+            listeners[Field.FILM_LENGTH]?.onChange(filmLength)
+        else
+            listeners[Field.FILM_LENGTH]?.onErase()
+    }
+
     private val coefC: Double
         get() {
             return if (focalSpot / sensitivity < 2) 4.0
@@ -195,6 +212,7 @@ class CommonMath(private val scheme: Scheme) {
                         externalDiameter
                     else
                         0.5 * (1.5 * coefC * (externalDiameter - internalDiameter) - externalDiameter)
+                Scheme.FIVE_D -> 0.5 * (coefC * (1.4 * externalDiameter - internalDiameter) - externalDiameter)
                 else -> 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
@@ -240,5 +258,8 @@ class CommonMath(private val scheme: Scheme) {
 
     private val rotationAngle: Double
         get() = 360 / scansAmount
+
+    private val filmLength: Double
+        get() = 250.0
 }
 
