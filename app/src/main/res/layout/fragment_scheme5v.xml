@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".scheme5v.Scheme5v">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:shrinkColumns="2,5">
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/et_external_diameter"
+                android:text="@string/external_diameter" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/et_sensitivity"
+                android:text="@string/sensitivity" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/D_is"
+                android:textAlignment="gravity" />
+
+            <EditText
+                android:id="@+id/et_external_diameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/mm"
+                android:textAlignment="gravity" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/K_is"
+                android:textAlignment="gravity" />
+
+            <EditText
+                android:id="@+id/et_sensitivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="6"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/mm"
+                android:textAlignment="gravity" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/et_focal_spot"
+                android:text="@string/focal_spot" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_c"
+                android:text="@string/coef_C" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/F_is"
+                android:textAlignment="gravity" />
+
+            <EditText
+                android:id="@+id/et_focal_spot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/mm"
+                android:textAlignment="gravity" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/C_is"
+                android:textAlignment="gravity" />
+
+            <TextView
+                android:id="@+id/tv_coef_c"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="2"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:text="@string/example_one"
+                android:textAlignment="gravity"
+                android:textIsSelectable="true" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/tv_distance"
+                android:text="@string/distance" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/tv_scans_amount"
+                android:text="@string/scans_amount" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/f_is"
+                android:textAlignment="gravity" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:text="@string/example_one"
+                android:textAlignment="gravity"
+                android:textIsSelectable="true" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/mm"
+                android:textAlignment="gravity" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/N_is"
+                android:textAlignment="gravity" />
+
+            <TextView
+                android:id="@+id/tv_scans_amount"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="2"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:text="@string/example_one"
+                android:textAlignment="gravity"
+                android:textIsSelectable="true" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_span="3"
+                android:labelFor="@id/tv_plot_length"
+                android:text="@string/plot_length" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_marginStart="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/Length_is"
+                android:textAlignment="gravity" />
+
+            <TextView
+                android:id="@+id/tv_plot_length"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:text="@string/example_one"
+                android:textAlignment="gravity"
+                android:textIsSelectable="true" />
+
+            <TextView
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="center_vertical"
+                android:text="@string/mm"
+                android:textAlignment="gravity" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

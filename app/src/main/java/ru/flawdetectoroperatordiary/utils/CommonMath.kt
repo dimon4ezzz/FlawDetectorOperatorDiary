@@ -75,7 +75,12 @@ class CommonMath(private val scheme: Scheme) {
                 trySetCoefN()
             }
             Scheme.FIVE_B -> TODO()
-            Scheme.FIVE_V -> TODO()
+            Scheme.FIVE_V -> {
+                trySetCoefC()
+                trySetDistance()
+                trySetScansAmount()
+                trySetPlotLength()
+            }
             Scheme.FIVE_G -> TODO()
             Scheme.FIVE_D -> TODO()
             Scheme.FIVE_E -> TODO()
@@ -160,6 +165,7 @@ class CommonMath(private val scheme: Scheme) {
         get() {
             return when (scheme) {
                 Scheme.FOUR -> coefC * radiationThickness
+                Scheme.FIVE_V -> coefC * externalDiameter
                 else -> 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
@@ -191,6 +197,8 @@ class CommonMath(private val scheme: Scheme) {
                         20 + transilluminationPerimeter / scansAmount
                     else
                         1.2 * transilluminationPerimeter / scansAmount
+                Scheme.FIVE_V ->
+                    40 + externalDiameter
                 else ->
                     throw IllegalStateException("plot length is not applicable")
             }
