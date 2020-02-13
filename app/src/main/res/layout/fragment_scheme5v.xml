@@ -15,22 +15,14 @@
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/et_external_diameter"
                 android:text="@string/external_diameter" />
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/et_sensitivity"
                 android:text="@string/sensitivity" />
@@ -39,14 +31,9 @@
         <TableRow>
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/D_is"
-                android:textAlignment="gravity" />
+                android:text="@string/D_is" />
 
             <EditText
                 android:id="@+id/et_external_diameter"
@@ -61,24 +48,14 @@
                 android:singleLine="true" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/EndText"
                 android:layout_column="3"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/mm"
-                android:textAlignment="gravity" />
+                android:text="@string/mm" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/K_is"
-                android:textAlignment="gravity" />
+                android:text="@string/K_is" />
 
             <EditText
                 android:id="@+id/et_sensitivity"
@@ -93,36 +70,23 @@
                 android:singleLine="true" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/EndText"
                 android:layout_column="6"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/mm"
-                android:textAlignment="gravity" />
+                android:text="@string/mm" />
         </TableRow>
 
         <TableRow>
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/et_focal_spot"
                 android:text="@string/focal_spot" />
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/tv_coef_c"
                 android:text="@string/coef_C" />
@@ -131,14 +95,9 @@
         <TableRow>
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/F_is"
-                android:textAlignment="gravity" />
+                android:text="@string/F_is" />
 
             <EditText
                 android:id="@+id/et_focal_spot"
@@ -153,61 +112,34 @@
                 android:singleLine="true" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/EndText"
                 android:layout_column="3"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/mm"
-                android:textAlignment="gravity" />
+                android:text="@string/mm" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/C_is"
-                android:textAlignment="gravity" />
+                android:text="@string/C_is" />
 
             <TextView
                 android:id="@+id/tv_coef_c"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ValueText"
                 android:layout_column="5"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:layout_span="2"
-                android:enabled="false"
-                android:gravity="center_vertical"
-                android:text="@string/example_one"
-                android:textAlignment="gravity"
-                android:textIsSelectable="true" />
+                android:layout_span="2" />
         </TableRow>
 
         <TableRow>
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/tv_distance"
                 android:text="@string/distance" />
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/tv_scans_amount"
                 android:text="@string/scans_amount" />
@@ -216,74 +148,37 @@
         <TableRow>
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/f_is"
-                android:textAlignment="gravity" />
+                android:text="@string/f_is" />
 
             <TextView
                 android:id="@+id/tv_distance"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:enabled="false"
-                android:gravity="center_vertical"
-                android:text="@string/example_one"
-                android:textAlignment="gravity"
-                android:textIsSelectable="true" />
+                style="@style/ValueText"
+                android:layout_column="2" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/EndText"
                 android:layout_column="3"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/mm"
-                android:textAlignment="gravity" />
+                android:text="@string/mm" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="4"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/N_is"
-                android:textAlignment="gravity" />
+                android:text="@string/N_is" />
 
             <TextView
                 android:id="@+id/tv_scans_amount"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ValueText"
                 android:layout_column="5"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:layout_span="2"
-                android:enabled="false"
-                android:gravity="center_vertical"
-                android:text="@string/example_one"
-                android:textAlignment="gravity"
-                android:textIsSelectable="true" />
+                android:layout_span="2" />
         </TableRow>
 
         <TableRow>
 
             <TextView
                 style="@style/BoldSubhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
                 android:layout_span="3"
                 android:labelFor="@id/tv_plot_length"
                 android:text="@string/plot_length" />
@@ -292,38 +187,19 @@
         <TableRow>
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/StartText"
                 android:layout_column="1"
-                android:layout_marginStart="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/Length_is"
-                android:textAlignment="gravity" />
+                android:text="@string/Length_is" />
 
             <TextView
                 android:id="@+id/tv_plot_length"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:enabled="false"
-                android:gravity="center_vertical"
-                android:text="@string/example_one"
-                android:textAlignment="gravity"
-                android:textIsSelectable="true" />
+                style="@style/ValueText"
+                android:layout_column="2" />
 
             <TextView
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/EndText"
                 android:layout_column="3"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:gravity="center_vertical"
-                android:text="@string/mm"
-                android:textAlignment="gravity" />
+                android:text="@string/mm" />
         </TableRow>
     </TableLayout>
 </ScrollView>

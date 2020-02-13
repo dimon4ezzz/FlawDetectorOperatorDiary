@@ -11,21 +11,45 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
         <item name="android:background">@color/colorPrimary</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:elevation">@dimen/elevation</item>
         <item name="android:paddingStart">@dimen/default_margin</item>
         <item name="android:paddingEnd">@dimen/default_margin</item>
     </style>
 
     <style name="BoldSubhead" parent="android:style/TextAppearance.Material.Subhead">
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginTop">@dimen/big_margin</item>
         <item name="android:gravity">bottom</item>
         <item name="android:textAlignment">gravity</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/subhead_size</item>
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="Text" parent="android:style/TextAppearance.Material">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAlignment">gravity</item>
+    </style>
+
+    <style name="StartText" parent="Text">
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+    </style>
+
+    <style name="ValueText" parent="Text">
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textIsSelectable">true</item>
+        <item name="android:text">@string/example_one</item>
+    </style>
+
+    <style name="EndText" parent="Text">
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
     </style>
 
     <style name="SpinnerTitle" parent="Base.Widget.AppCompat.ActionBar.TabText">
