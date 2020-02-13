@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".scheme5a.Scheme5a">
+    tools:context=".scheme5g.Scheme5g">
 
     <TableLayout
         android:layout_width="match_parent"
