@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Расчёты ГОСТ 7512-82</string>
+    <string name="app_name">Расчёты ГОСТ 7512\u200c\u2010\u200c82</string>
 
     <string name="external_diameter">Наружный диаметр</string>
     <string name="radiation_thickness">Радиационная толщина</string>

@@ -2,14 +2,14 @@
 <resources>
     <string-array name="titles">
         <item>Схема 4</item>
-        <item>Схема 5а</item>
-        <item>Схема 5б</item>
-        <item>Схема 5в</item>
-        <item>Схема 5г</item>
-        <item>Схема 5д</item>
-        <item>Схема 5е</item>
-        <item>Схема 5ж</item>
-        <item>Схема 5з</item>
+        <item>Схема 5\u200cа</item>
+        <item>Схема 5\u200cб</item>
+        <item>Схема 5\u200cв</item>
+        <item>Схема 5\u200cг</item>
+        <item>Схема 5\u200cд</item>
+        <item>Схема 5\u200cе</item>
+        <item>Схема 5\u200cж</item>
+        <item>Схема 5\u200cз</item>
         <item>Схема 6</item>
     </string-array>
 </resources>
