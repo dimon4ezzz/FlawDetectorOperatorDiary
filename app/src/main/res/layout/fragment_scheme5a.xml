@@ -286,7 +286,7 @@
             <TextView
                 style="@style/StartText"
                 android:layout_column="4"
-                android:text="@string/Length_is" />
+                android:text="@string/L_is" />
 
             <TextView
                 android:id="@+id/tv_plot_length"
