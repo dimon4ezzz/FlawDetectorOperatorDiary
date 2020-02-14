@@ -33,7 +33,7 @@ class Scheme5v : DefaultFragment() {
 
     override fun setCalculatedFieldListeners() {
         setMathListener(Field.COEFC, coefC)
-        setMathListener(Field.DISTANCE, distance)
+        setMathListener(Field.DISTANCE, distance, intFormat = true)
         setMathListener(Field.SCANS_AMOUNT, scansAmount, intFormat = true)
         setMathListener(Field.PLOT_LENGTH, plotLength)
     }

@@ -29,7 +29,7 @@ class Scheme4 : DefaultFragment() {
 
     override fun setCalculatedFieldListeners() {
         setMathListener(Field.COEFC, coefC)
-        setMathListener(Field.DISTANCE, distance)
+        setMathListener(Field.DISTANCE, distance, intFormat = true)
         setMathListener(Field.PLOT_LENGTH, plotLength)
     }
 }

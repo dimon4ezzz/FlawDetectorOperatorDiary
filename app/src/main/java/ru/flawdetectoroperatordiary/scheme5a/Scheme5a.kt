@@ -43,7 +43,7 @@ class Scheme5a : DefaultFragment() {
         setMathListener(Field.COEFM, coefM)
         setMathListener(Field.COEFN, coefN)
         setMathListener(Field.TRANSILLUMINATION_PERIMETER, transilluminationPerimeter)
-        setMathListener(Field.DISTANCE, distance)
+        setMathListener(Field.DISTANCE, distance, intFormat = true)
         setMathListener(Field.SCANS_AMOUNT, scansAmount, intFormat = true)
         setMathListener(Field.PLOT_LENGTH, plotLength)
     }

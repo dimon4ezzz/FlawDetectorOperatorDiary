@@ -47,7 +47,7 @@ class Scheme5g : DefaultFragment() {
         setMathListener(Field.COEFM, coefM)
         setMathListener(Field.COEFN, coefN)
         setMathListener(Field.P_VAR, pVar)
-        setMathListener(Field.DISTANCE, distance)
+        setMathListener(Field.DISTANCE, distance, intFormat = true)
         setMathListener(Field.SCANS_AMOUNT, scansAmount, intFormat = true)
         setMathListener(Field.ROTATION_ANGLE, rotationAngle)
         setMathListener(Field.PLOT_LENGTH, plotLength)
