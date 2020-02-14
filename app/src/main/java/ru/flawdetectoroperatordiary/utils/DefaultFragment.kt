@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.flawdetectoroperatordiary.R
 
-const val FORMAT = "%.4f"
+const val FORMAT = "%.2f"
 const val INT_FORMAT = "%.0f"
 const val NONE = "—"
 
