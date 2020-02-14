@@ -11,5 +11,7 @@ enum class Field {
     SCANS_AMOUNT,
     P_VAR,
     ROTATION_ANGLE,
-    FILM_LENGTH
+    FILM_LENGTH,
+    GEOMETRIC_BLUR,
+    CALCULATED_FOCAL_SPOT
 }

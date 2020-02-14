@@ -103,7 +103,15 @@ class CommonMath(private val scheme: Scheme) {
                 trySetRotationAngle()
                 trySetFilmLength()
             }
-            Scheme.FIVE_E -> TODO()
+            Scheme.FIVE_E -> {
+                trySetInternalDiameter()
+                trySetCoefC()
+                trySetCoefM()
+                trySetDistance()
+                trySetTransilluminationPerimeter()
+                trySetGeometricBlur()
+                trySetCalculatedFocalSpot()
+            }
             Scheme.FIVE_Zh -> TODO()
             Scheme.FIVE_Z -> TODO()
             Scheme.SIX -> TODO()
@@ -187,6 +195,20 @@ class CommonMath(private val scheme: Scheme) {
             listeners[Field.FILM_LENGTH]?.onErase()
     }
 
+    private fun trySetGeometricBlur() {
+        if (!geometricBlur.isNaN())
+            listeners[Field.GEOMETRIC_BLUR]?.onChange(geometricBlur)
+        else
+            listeners[Field.GEOMETRIC_BLUR]?.onErase()
+    }
+
+    private fun trySetCalculatedFocalSpot() {
+        if (!calculatedFocalSpot.isNaN())
+            listeners[Field.CALCULATED_FOCAL_SPOT]?.onChange(calculatedFocalSpot)
+        else
+            listeners[Field.CALCULATED_FOCAL_SPOT]?.onErase()
+    }
+
     private val coefC: Double
         get() {
             return if (focalSpot / sensitivity < 2) 4.0
@@ -213,6 +235,7 @@ class CommonMath(private val scheme: Scheme) {
                     else
                         0.5 * (1.5 * coefC * (externalDiameter - internalDiameter) - externalDiameter)
                 Scheme.FIVE_D -> 0.5 * (coefC * (1.4 * externalDiameter - internalDiameter) - externalDiameter)
+                Scheme.FIVE_E -> internalDiameter / 2
                 else -> 0.7 * coefC * (externalDiameter - internalDiameter)
             }
         }
@@ -261,5 +284,11 @@ class CommonMath(private val scheme: Scheme) {
 
     private val filmLength: Double
         get() = 250.0
+
+    private val geometricBlur: Double
+        get() = focalSpot * (3 + radiationThickness) / distance
+
+    private val calculatedFocalSpot: Double
+        get() = sensitivity * internalDiameter / (2 * (externalDiameter - internalDiameter))
 }
 

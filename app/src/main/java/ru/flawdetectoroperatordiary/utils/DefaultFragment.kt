@@ -1,6 +1,7 @@
 package ru.flawdetectoroperatordiary.utils
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -72,6 +73,13 @@ abstract class DefaultFragment : Fragment() {
         })
     }
 
+    protected fun checkEditText(editText: EditText, value: Double?) {
+        if (editText.toDouble() != value || value == null)
+            editText.setBackgroundColor(Color.RED)
+        else
+            editText.setBackgroundColor(Color.GREEN)
+    }
+
     private fun <T : View> View.tryFindViewById(id: Int): T? {
         val t = this.findViewById<T>(id)
         if (t == null)
@@ -81,6 +89,12 @@ abstract class DefaultFragment : Fragment() {
 
     private fun Double.format(intFormat: Boolean): String =
         if (intFormat) INT_FORMAT.format(this) else FORMAT.format(this)
+
+    protected fun TextView.toDouble(): Double? =
+        this.text.toString().replace(',', '.').toDoubleOrNull()
+
+    protected fun EditText.toDouble(): Double? =
+        this.text.toString().replace(',', '.').toDoubleOrNull()
 
     private fun setFieldListeners() {
         externalDiameter?.setOnEditorActionListener(defaultOnEditorActionListener())

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".scheme5e.Scheme5e">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:shrinkColumns="2,5">
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/et_external_diameter"
+                android:text="@string/external_diameter" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/et_radiation_thickness"
+                android:text="@string/radiation_thickness" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/D_is" />
+
+            <EditText
+                android:id="@+id/et_external_diameter"
+                style="@style/Input"
+                android:layout_column="2"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/s_is" />
+
+            <EditText
+                android:id="@+id/et_radiation_thickness"
+                style="@style/Input"
+                android:layout_column="5"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/et_sensitivity"
+                android:text="@string/sensitivity" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/et_focal_spot"
+                android:text="@string/focal_spot" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/K_is" />
+
+            <EditText
+                android:id="@+id/et_sensitivity"
+                style="@style/Input"
+                android:layout_column="2"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/F_is" />
+
+            <EditText
+                android:id="@+id/et_focal_spot"
+                style="@style/Input"
+                android:layout_column="5"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/et_real_distance"
+                android:text="@string/real_distance" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:text="@string/calculated_focal_spot" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/real_distance_is" />
+
+            <EditText
+                android:id="@+id/et_real_distance"
+                style="@style/Input"
+                android:layout_column="2"
+                android:importantForAutofill="no" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/calculated_focal_spot_is" />
+
+            <TextView
+                android:id="@+id/tv_calculated_focal_spot"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_internal_diameter"
+                android:text="@string/internal_diameter" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_c"
+                android:text="@string/coef_C" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/d_is" />
+
+            <TextView
+                android:id="@+id/tv_internal_diameter"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/C_is" />
+
+            <TextView
+                android:id="@+id/tv_coef_c"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:layout_span="2"
+                android:text="@string/example_one" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_distance"
+                android:text="@string/calculated_distance" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_transillumination_perimeter"
+                android:text="@string/transillumination_perimeter" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/calculated_distance_is" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/L_is" />
+
+            <TextView
+                android:id="@+id/tv_transillumination_perimeter"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="1"
+                android:layout_span="3"
+                android:labelFor="@id/tv_geometric_blur"
+                android:text="@string/geometry_blur" />
+
+            <TextView
+                style="@style/BoldSubhead"
+                android:layout_column="4"
+                android:layout_span="3"
+                android:labelFor="@id/tv_coef_m"
+                android:text="@string/coef_m" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="1"
+                android:text="@string/H_is" />
+
+            <TextView
+                android:id="@+id/tv_geometric_blur"
+                style="@style/ValueText"
+                android:layout_column="2"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="3"
+                android:text="@string/mm" />
+
+            <TextView
+                style="@style/StartText"
+                android:layout_column="4"
+                android:text="@string/m_is" />
+
+            <TextView
+                android:id="@+id/tv_coef_m"
+                style="@style/ValueText"
+                android:layout_column="5"
+                android:text="@string/example_one" />
+
+            <TextView
+                style="@style/EndText"
+                android:layout_column="6"
+                android:text="@string/mm" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

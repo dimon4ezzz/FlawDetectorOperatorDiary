@@ -7,8 +7,8 @@
     <string name="focal_spot">Фокусное пятно</string>
     <string name="internal_diameter">Внутренний диаметр</string>
     <string name="coef_C">Коэффициент C</string>
-    <string name="coef_m">Коэффициент d/D</string>
-    <string name="coef_n">Коэффициент f/D</string>
+    <string name="coef_m">Отношение d/D</string>
+    <string name="coef_n">Отношение f/D</string>
     <string name="transillumination_perimeter">Периметр просвечивания</string>
     <string name="distance">Фокусное расстояние</string>
     <string name="scans_amount">Минимальное количество участков</string>
@@ -16,6 +16,10 @@
     <string name="p_var">Переменная p</string>
     <string name="rotation_angle">Угол поворота</string>
     <string name="film_length">Минимальная длина плёнки в кассете</string>
+    <string name="calculated_distance">Расчётное фокусное расстояние</string>
+    <string name="geometry_blur">Геометрическая нерезкость</string>
+    <string name="real_distance">Фактическое фокусное расстояние</string>
+    <string name="calculated_focal_spot">Расчётное фокусное пятно</string>
     <string name="mm">мм</string>
     <string name="degree">°</string>
     <string name="s_is">s:</string>
@@ -32,6 +36,10 @@
     <string name="Length_is">L:</string>
     <string name="p_is">p:</string>
     <string name="varphi_is">φ:</string>
+    <string name="calculated_distance_is">f<sub><small>расч</small></sub>:</string>
+    <string name="H_is">H:</string>
+    <string name="real_distance_is">f<sub><small>факт</small></sub>:</string>
+    <string name="calculated_focal_spot_is">Ф<sub><small>расч</small></sub>:</string>
     <string name="example_one">—</string>
     <string name="menu_action_choice">Выбор схемы</string>
     <string name="menu_action_clear">Очистить</string>
