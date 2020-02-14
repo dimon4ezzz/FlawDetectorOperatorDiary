@@ -37,15 +37,9 @@
 
             <EditText
                 android:id="@+id/et_radiation_thickness"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -59,15 +53,9 @@
 
             <EditText
                 android:id="@+id/et_sensitivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="5"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -101,15 +89,9 @@
 
             <EditText
                 android:id="@+id/et_focal_spot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -154,17 +136,8 @@
 
             <TextView
                 android:id="@+id/tv_distance"
-                style="@style/Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:enabled="false"
-                android:gravity="center_vertical"
-                android:text="@string/example_one"
-                android:textAlignment="gravity"
-                android:textIsSelectable="true" />
+                style="@style/ValueText"
+                android:layout_column="2" />
 
             <TextView
                 style="@style/EndText"

@@ -52,6 +52,16 @@
         <item name="android:layout_marginEnd">@dimen/default_margin</item>
     </style>
 
+    <style name="Input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/default_margin</item>
+        <item name="android:layout_marginEnd">@dimen/default_margin</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
     <style name="SpinnerTitle" parent="Base.Widget.AppCompat.ActionBar.TabText">
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
         <item name="android:textSize">18sp</item>

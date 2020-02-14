@@ -37,15 +37,9 @@
 
             <EditText
                 android:id="@+id/et_external_diameter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -59,15 +53,9 @@
 
             <EditText
                 android:id="@+id/et_radiation_thickness"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="5"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -101,15 +89,9 @@
 
             <EditText
                 android:id="@+id/et_sensitivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="2"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
@@ -123,15 +105,9 @@
 
             <EditText
                 android:id="@+id/et_focal_spot"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/Input"
                 android:layout_column="5"
-                android:layout_marginStart="@dimen/default_margin"
-                android:layout_marginEnd="@dimen/default_margin"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:importantForAutofill="no" />
 
             <TextView
                 style="@style/EndText"
