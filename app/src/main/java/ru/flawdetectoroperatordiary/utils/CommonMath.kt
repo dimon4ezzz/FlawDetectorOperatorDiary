@@ -60,57 +60,57 @@ class CommonMath(private val scheme: Scheme) {
     private fun calculate() {
         when (scheme) {
             Scheme.FOUR -> {
-                trySetCoefC()
-                trySetDistance()
-                trySetPlotLength()
+                trySet(Field.COEFC, coefC)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.PLOT_LENGTH, plotLength)
             }
             Scheme.FIVE_A -> {
-                trySetTransilluminationPerimeter()
-                trySetInternalDiameter()
-                trySetCoefM()
-                trySetCoefC()
-                trySetDistance()
-                trySetScansAmount()
-                trySetPlotLength()
-                trySetCoefN()
+                trySet(Field.TRANSILLUMINATION_PERIMETER, transilluminationPerimeter)
+                trySet(Field.INTERNAL_DIAMETER, internalDiameter)
+                trySet(Field.COEFM, coefM)
+                trySet(Field.COEFC, coefC)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.SCANS_AMOUNT, scansAmount)
+                trySet(Field.PLOT_LENGTH, plotLength)
+                trySet(Field.COEFN, coefN)
             }
             Scheme.FIVE_B -> TODO()
             Scheme.FIVE_V -> {
-                trySetCoefC()
-                trySetDistance()
-                trySetScansAmount()
-                trySetPlotLength()
+                trySet(Field.COEFC, coefC)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.SCANS_AMOUNT, scansAmount)
+                trySet(Field.PLOT_LENGTH, plotLength)
             }
             Scheme.FIVE_G -> {
-                trySetInternalDiameter()
-                trySetCoefC()
-                trySetCoefM()
-                trySetCoefN()
-                trySetPVar()
-                trySetDistance()
-                trySetScansAmount()
-                trySetRotationAngle()
-                trySetPlotLength()
+                trySet(Field.INTERNAL_DIAMETER, internalDiameter)
+                trySet(Field.COEFC, coefC)
+                trySet(Field.COEFM, coefM)
+                trySet(Field.COEFN, coefN)
+                trySet(Field.P_VAR, pVar)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.SCANS_AMOUNT, scansAmount)
+                trySet(Field.ROTATION_ANGLE, rotationAngle)
+                trySet(Field.PLOT_LENGTH, plotLength)
             }
             Scheme.FIVE_D -> {
-                trySetInternalDiameter()
-                trySetCoefC()
-                trySetCoefM()
-                trySetCoefN()
-                trySetPVar()
-                trySetDistance()
-                trySetScansAmount()
-                trySetRotationAngle()
-                trySetFilmLength()
+                trySet(Field.INTERNAL_DIAMETER, internalDiameter)
+                trySet(Field.COEFC, coefC)
+                trySet(Field.COEFM, coefM)
+                trySet(Field.COEFN, coefN)
+                trySet(Field.P_VAR, pVar)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.SCANS_AMOUNT, scansAmount)
+                trySet(Field.ROTATION_ANGLE, rotationAngle)
+                trySet(Field.FILM_LENGTH, filmLength)
             }
             Scheme.FIVE_E -> {
-                trySetInternalDiameter()
-                trySetCoefC()
-                trySetCoefM()
-                trySetDistance()
-                trySetTransilluminationPerimeter()
-                trySetGeometricBlur()
-                trySetCalculatedFocalSpot()
+                trySet(Field.INTERNAL_DIAMETER, internalDiameter)
+                trySet(Field.COEFC, coefC)
+                trySet(Field.COEFM, coefM)
+                trySet(Field.DISTANCE, distance)
+                trySet(Field.TRANSILLUMINATION_PERIMETER, transilluminationPerimeter)
+                trySet(Field.GEOMETRIC_BLUR, geometricBlur)
+                trySet(Field.CALCULATED_FOCAL_SPOT, calculatedFocalSpot)
             }
             Scheme.FIVE_Zh -> TODO()
             Scheme.FIVE_Z -> TODO()
@@ -118,95 +118,11 @@ class CommonMath(private val scheme: Scheme) {
         }
     }
 
-    private fun trySetCoefC() {
-        if (!coefC.isNaN())
-            listeners[Field.COEFC]?.onChange(coefC)
+    private fun trySet(field: Field, value: Double) {
+        if (!value.isNaN())
+            listeners[field]?.onChange(value)
         else
-            listeners[Field.COEFC]?.onErase()
-    }
-
-    private fun trySetInternalDiameter() {
-        if (!internalDiameter.isNaN())
-            listeners[Field.INTERNAL_DIAMETER]?.onChange(internalDiameter)
-        else
-            listeners[Field.INTERNAL_DIAMETER]?.onErase()
-    }
-
-    private fun trySetCoefM() {
-        if (!coefM.isNaN())
-            listeners[Field.COEFM]?.onChange(coefM)
-        else
-            listeners[Field.COEFM]?.onErase()
-    }
-
-    private fun trySetTransilluminationPerimeter() {
-        if (!transilluminationPerimeter.isNaN())
-            listeners[Field.TRANSILLUMINATION_PERIMETER]?.onChange(transilluminationPerimeter)
-        else
-            listeners[Field.TRANSILLUMINATION_PERIMETER]?.onErase()
-    }
-
-    private fun trySetDistance() {
-        if (!distance.isNaN())
-            listeners[Field.DISTANCE]?.onChange(distance)
-        else
-            listeners[Field.DISTANCE]?.onErase()
-    }
-
-    private fun trySetScansAmount() {
-        if (!scansAmount.isNaN())
-            listeners[Field.SCANS_AMOUNT]?.onChange(scansAmount)
-        else
-            listeners[Field.SCANS_AMOUNT]?.onErase()
-    }
-
-    private fun trySetPlotLength() {
-        if (!plotLength.isNaN())
-            listeners[Field.PLOT_LENGTH]?.onChange(plotLength)
-        else
-            listeners[Field.PLOT_LENGTH]?.onErase()
-    }
-
-    private fun trySetCoefN() {
-        if (!coefN.isNaN())
-            listeners[Field.COEFN]?.onChange(coefN)
-        else
-            listeners[Field.COEFN]?.onErase()
-    }
-
-    private fun trySetPVar() {
-        if (!pVar.isNaN())
-            listeners[Field.P_VAR]?.onChange(pVar)
-        else
-            listeners[Field.P_VAR]?.onErase()
-    }
-
-    private fun trySetRotationAngle() {
-        if (!rotationAngle.isNaN())
-            listeners[Field.ROTATION_ANGLE]?.onChange(rotationAngle)
-        else
-            listeners[Field.ROTATION_ANGLE]?.onErase()
-    }
-
-    private fun trySetFilmLength() {
-        if (!filmLength.isNaN())
-            listeners[Field.FILM_LENGTH]?.onChange(filmLength)
-        else
-            listeners[Field.FILM_LENGTH]?.onErase()
-    }
-
-    private fun trySetGeometricBlur() {
-        if (!geometricBlur.isNaN())
-            listeners[Field.GEOMETRIC_BLUR]?.onChange(geometricBlur)
-        else
-            listeners[Field.GEOMETRIC_BLUR]?.onErase()
-    }
-
-    private fun trySetCalculatedFocalSpot() {
-        if (!calculatedFocalSpot.isNaN())
-            listeners[Field.CALCULATED_FOCAL_SPOT]?.onChange(calculatedFocalSpot)
-        else
-            listeners[Field.CALCULATED_FOCAL_SPOT]?.onErase()
+            listeners[field]?.onErase()
     }
 
     private val coefC: Double
