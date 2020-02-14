@@ -134,31 +134,31 @@ abstract class DefaultFragment : Fragment() {
 
     private fun requestFocus(v: TextView) {
         externalDiameter?.let {
-            if (it.text.isEmpty() && v != it)
+            if (it.text.isEmpty() && v != it) {
                 it.requestFocus()
-
-            return
+                return
+            }
         }
 
         radiationThickness?.let {
-            if (it.text.isEmpty() && v != it)
+            if (it.text.isEmpty() && v != it) {
                 it.requestFocus()
-
-            return
+                return
+            }
         }
 
         sensitivity?.let {
-            if (it.text.isEmpty() && v != it)
+            if (it.text.isEmpty() && v != it) {
                 it.requestFocus()
-
-            return
+                return
+            }
         }
 
         focalSpot?.let {
-            if (it.text.isEmpty() && v != it)
+            if (it.text.isEmpty() && v != it) {
                 it.requestFocus()
-
-            return
+                return
+            }
         }
     }
 
