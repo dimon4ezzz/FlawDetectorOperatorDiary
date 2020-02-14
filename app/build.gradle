@@ -13,9 +13,9 @@ android {
         targetSdkVersion 29
         versionCode 31
         versionName '0.3.1'
-        versionNameSuffix = 'alpha'
+        versionNameSuffix = '-alpha'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        setProperty("archivesBaseName", "$applicationId-$versionName-$versionNameSuffix")
+        setProperty("archivesBaseName", "$applicationId-$versionName$versionNameSuffix")
     }
     buildTypes {
         release {
